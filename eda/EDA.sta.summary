@@ -1,0 +1,53 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'DIAN_ZHEN_ROW_SAO_MIAO'
+Slack : -1.065
+TNS   : -3.957
+
+Type  : Slow 1200mV 85C Model Setup 'SHU_MA_GUAN_WEI_ZHI_Signal'
+Slack : -0.079
+TNS   : -0.079
+
+Type  : Slow 1200mV 85C Model Hold 'DIAN_ZHEN_ROW_SAO_MIAO'
+Slack : 0.453
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'SHU_MA_GUAN_WEI_ZHI_Signal'
+Slack : 0.453
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'DIAN_ZHEN_ROW_SAO_MIAO'
+Slack : -0.855
+TNS   : -3.153
+
+Type  : Slow 1200mV 0C Model Setup 'SHU_MA_GUAN_WEI_ZHI_Signal'
+Slack : 0.033
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'DIAN_ZHEN_ROW_SAO_MIAO'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'SHU_MA_GUAN_WEI_ZHI_Signal'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'DIAN_ZHEN_ROW_SAO_MIAO'
+Slack : 0.109
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'SHU_MA_GUAN_WEI_ZHI_Signal'
+Slack : 0.539
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'DIAN_ZHEN_ROW_SAO_MIAO'
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'SHU_MA_GUAN_WEI_ZHI_Signal'
+Slack : 0.186
+TNS   : 0.000
+
+------------------------------------------------------------

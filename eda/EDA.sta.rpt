@@ -1,0 +1,1532 @@
+TimeQuest Timing Analyzer report for EDA
+Thu Dec 29 17:53:34 2016
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Slow 1200mV 85C Model Setup Summary
+  7. Slow 1200mV 85C Model Hold Summary
+  8. Slow 1200mV 85C Model Recovery Summary
+  9. Slow 1200mV 85C Model Removal Summary
+ 10. Slow 1200mV 85C Model Minimum Pulse Width
+ 11. Setup Times
+ 12. Hold Times
+ 13. Clock to Output Times
+ 14. Minimum Clock to Output Times
+ 15. Propagation Delay
+ 16. Minimum Propagation Delay
+ 17. Slow 1200mV 0C Model Fmax Summary
+ 18. Slow 1200mV 0C Model Setup Summary
+ 19. Slow 1200mV 0C Model Hold Summary
+ 20. Slow 1200mV 0C Model Recovery Summary
+ 21. Slow 1200mV 0C Model Removal Summary
+ 22. Slow 1200mV 0C Model Minimum Pulse Width
+ 23. Setup Times
+ 24. Hold Times
+ 25. Clock to Output Times
+ 26. Minimum Clock to Output Times
+ 27. Propagation Delay
+ 28. Minimum Propagation Delay
+ 29. Fast 1200mV 0C Model Setup Summary
+ 30. Fast 1200mV 0C Model Hold Summary
+ 31. Fast 1200mV 0C Model Recovery Summary
+ 32. Fast 1200mV 0C Model Removal Summary
+ 33. Fast 1200mV 0C Model Minimum Pulse Width
+ 34. Setup Times
+ 35. Hold Times
+ 36. Clock to Output Times
+ 37. Minimum Clock to Output Times
+ 38. Propagation Delay
+ 39. Minimum Propagation Delay
+ 40. Multicorner Timing Analysis Summary
+ 41. Setup Times
+ 42. Hold Times
+ 43. Clock to Output Times
+ 44. Minimum Clock to Output Times
+ 45. Progagation Delay
+ 46. Minimum Progagation Delay
+ 47. Board Trace Model Assignments
+ 48. Input Transition Times
+ 49. Slow Corner Signal Integrity Metrics
+ 50. Fast Corner Signal Integrity Metrics
+ 51. Setup Transfers
+ 52. Hold Transfers
+ 53. Report TCCS
+ 54. Report RSKM
+ 55. Unconstrained Paths
+ 56. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                     ;
++--------------------+--------------------------------------------------+
+; Quartus II Version ; Version 9.0 Build 132 02/25/2009 SJ Full Version ;
+; Revision Name      ; EDA                                              ;
+; Device Family      ; Cyclone III                                      ;
+; Device Name        ; EP3C10E144C8                                     ;
+; Timing Models      ; Final                                            ;
+; Delay Model        ; Combined                                         ;
+; Rise/Fall Delays   ; Enabled                                          ;
++--------------------+--------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 2           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2 processors           ; < 0.1%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                                 ;
++----------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------------+
+; Clock Name                 ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                        ;
++----------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------------+
+; DIAN_ZHEN_ROW_SAO_MIAO     ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { DIAN_ZHEN_ROW_SAO_MIAO }     ;
+; SHU_MA_GUAN_WEI_ZHI_Signal ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { SHU_MA_GUAN_WEI_ZHI_Signal } ;
++----------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                                        ;
++------------+-----------------+----------------------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name                 ; Note                                                          ;
++------------+-----------------+----------------------------+---------------------------------------------------------------+
+; 484.26 MHz ; 250.0 MHz       ; DIAN_ZHEN_ROW_SAO_MIAO     ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 926.78 MHz ; 250.0 MHz       ; SHU_MA_GUAN_WEI_ZHI_Signal ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+----------------------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-----------------------------------------------------+
+; Slow 1200mV 85C Model Setup Summary                 ;
++----------------------------+--------+---------------+
+; Clock                      ; Slack  ; End Point TNS ;
++----------------------------+--------+---------------+
+; DIAN_ZHEN_ROW_SAO_MIAO     ; -1.065 ; -3.957        ;
+; SHU_MA_GUAN_WEI_ZHI_Signal ; -0.079 ; -0.079        ;
++----------------------------+--------+---------------+
+
+
++----------------------------------------------------+
+; Slow 1200mV 85C Model Hold Summary                 ;
++----------------------------+-------+---------------+
+; Clock                      ; Slack ; End Point TNS ;
++----------------------------+-------+---------------+
+; DIAN_ZHEN_ROW_SAO_MIAO     ; 0.453 ; 0.000         ;
+; SHU_MA_GUAN_WEI_ZHI_Signal ; 0.453 ; 0.000         ;
++----------------------------+-------+---------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width                                                                                                                      ;
++--------+--------------+----------------+-------+------------------+----------------------------+------------+--------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; CCPP  ; Type             ; Clock                      ; Clock Edge ; Target                                           ;
++--------+--------------+----------------+-------+------------------+----------------------------+------------+--------------------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; 0.000 ; Port Rate        ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO                           ;
+; -3.000 ; 1.000        ; 4.000          ; 0.000 ; Port Rate        ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal                       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|110                      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|87                       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|9                        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|99                       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; 74161:inst49|f74161:sub|87                       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; 74161:inst49|f74161:sub|9                        ;
+; 0.289  ; 0.414        ; 0.220          ; 0.095 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; 74161:inst49|f74161:sub|87                       ;
+; 0.289  ; 0.414        ; 0.220          ; 0.095 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; 74161:inst49|f74161:sub|9                        ;
+; 0.291  ; 0.416        ; 0.220          ; 0.095 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|110                      ;
+; 0.291  ; 0.416        ; 0.220          ; 0.095 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|87                       ;
+; 0.291  ; 0.416        ; 0.220          ; 0.095 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|9                        ;
+; 0.291  ; 0.416        ; 0.220          ; 0.095 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|99                       ;
+; 0.300  ; 0.393        ; 0.188          ; 0.095 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|110                      ;
+; 0.300  ; 0.393        ; 0.188          ; 0.095 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|87                       ;
+; 0.300  ; 0.393        ; 0.188          ; 0.095 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|9                        ;
+; 0.300  ; 0.393        ; 0.188          ; 0.095 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|99                       ;
+; 0.302  ; 0.395        ; 0.188          ; 0.095 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; 74161:inst49|f74161:sub|87                       ;
+; 0.302  ; 0.395        ; 0.188          ; 0.095 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; 74161:inst49|f74161:sub|9                        ;
+; 0.440  ; 0.393        ; 0.000          ; 0.047 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|110|clk                               ;
+; 0.440  ; 0.393        ; 0.000          ; 0.047 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|87|clk                                ;
+; 0.440  ; 0.393        ; 0.000          ; 0.047 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|99|clk                                ;
+; 0.440  ; 0.393        ; 0.000          ; 0.047 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|9|clk                                 ;
+; 0.442  ; 0.395        ; 0.000          ; 0.047 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; inst49|sub|87|clk                                ;
+; 0.442  ; 0.395        ; 0.000          ; 0.047 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; inst49|sub|9|clk                                 ;
+; 0.449  ; 0.449        ; 0.000          ; 0.000 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~input|o                   ;
+; 0.449  ; 0.449        ; 0.000          ; 0.000 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~input|o               ;
+; 0.462  ; 0.454        ; 0.000          ; 0.008 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~inputclkctrl|inclk[0]     ;
+; 0.462  ; 0.454        ; 0.000          ; 0.008 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~inputclkctrl|outclk       ;
+; 0.462  ; 0.454        ; 0.000          ; 0.008 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~inputclkctrl|inclk[0] ;
+; 0.462  ; 0.454        ; 0.000          ; 0.008 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~inputclkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~input|i                   ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~input|i                   ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~input|i               ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~input|i               ;
+; 0.537  ; 0.529        ; 0.000          ; 0.008 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~inputclkctrl|inclk[0]     ;
+; 0.537  ; 0.529        ; 0.000          ; 0.008 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~inputclkctrl|outclk       ;
+; 0.537  ; 0.529        ; 0.000          ; 0.008 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~inputclkctrl|inclk[0] ;
+; 0.537  ; 0.529        ; 0.000          ; 0.008 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~inputclkctrl|outclk   ;
+; 0.551  ; 0.551        ; 0.000          ; 0.000 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~input|o                   ;
+; 0.551  ; 0.551        ; 0.000          ; 0.000 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~input|o               ;
+; 0.558  ; 0.511        ; 0.000          ; 0.047 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; inst49|sub|87|clk                                ;
+; 0.558  ; 0.511        ; 0.000          ; 0.047 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; inst49|sub|9|clk                                 ;
+; 0.560  ; 0.513        ; 0.000          ; 0.047 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|110|clk                               ;
+; 0.560  ; 0.513        ; 0.000          ; 0.047 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|87|clk                                ;
+; 0.560  ; 0.513        ; 0.000          ; 0.047 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|99|clk                                ;
+; 0.560  ; 0.513        ; 0.000          ; 0.047 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|9|clk                                 ;
++--------+--------------+----------------+-------+------------------+----------------------------+------------+--------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------+
+; Setup Times                                                                              ;
++-----------+------------------------+-------+-------+------------+------------------------+
+; Data Port ; Clock Port             ; Rise  ; Fall  ; Clock Edge ; Clock Reference        ;
++-----------+------------------------+-------+-------+------------+------------------------+
+; A0        ; DIAN_ZHEN_ROW_SAO_MIAO ; 5.897 ; 5.922 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A1        ; DIAN_ZHEN_ROW_SAO_MIAO ; 6.719 ; 6.806 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A2        ; DIAN_ZHEN_ROW_SAO_MIAO ; 6.894 ; 7.002 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A3        ; DIAN_ZHEN_ROW_SAO_MIAO ; 7.018 ; 7.116 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B0        ; DIAN_ZHEN_ROW_SAO_MIAO ; 5.073 ; 5.233 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B1        ; DIAN_ZHEN_ROW_SAO_MIAO ; 7.342 ; 7.385 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B2        ; DIAN_ZHEN_ROW_SAO_MIAO ; 7.196 ; 7.611 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B3        ; DIAN_ZHEN_ROW_SAO_MIAO ; 6.883 ; 6.915 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
++-----------+------------------------+-------+-------+------------+------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Hold Times                                                                                 ;
++-----------+------------------------+--------+--------+------------+------------------------+
+; Data Port ; Clock Port             ; Rise   ; Fall   ; Clock Edge ; Clock Reference        ;
++-----------+------------------------+--------+--------+------------+------------------------+
+; A0        ; DIAN_ZHEN_ROW_SAO_MIAO ; -4.562 ; -4.563 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A1        ; DIAN_ZHEN_ROW_SAO_MIAO ; -4.696 ; -5.212 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A2        ; DIAN_ZHEN_ROW_SAO_MIAO ; -4.890 ; -5.420 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A3        ; DIAN_ZHEN_ROW_SAO_MIAO ; -4.919 ; -4.964 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B0        ; DIAN_ZHEN_ROW_SAO_MIAO ; -3.769 ; -3.899 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B1        ; DIAN_ZHEN_ROW_SAO_MIAO ; -5.552 ; -5.954 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B2        ; DIAN_ZHEN_ROW_SAO_MIAO ; -5.692 ; -5.934 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B3        ; DIAN_ZHEN_ROW_SAO_MIAO ; -4.038 ; -4.233 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
++-----------+------------------------+--------+--------+------------+------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                              ;
++-----------+----------------------------+--------+--------+------------+----------------------------+
+; Data Port ; Clock Port                 ; Rise   ; Fall   ; Clock Edge ; Clock Reference            ;
++-----------+----------------------------+--------+--------+------------+----------------------------+
+; DZA       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 9.464  ; 9.079  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZB       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 8.431  ; 8.304  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZC       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 6.615  ; 6.501  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZD       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 6.723  ; 6.696  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O5        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 7.447  ; 7.297  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O6        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 9.017  ; 8.915  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O7        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 7.283  ; 7.052  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O8        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 8.428  ; 8.246  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O9        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 8.028  ; 7.888  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O10       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 7.576  ; 7.308  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; 138A      ; SHU_MA_GUAN_WEI_ZHI_Signal ; 6.947  ; 6.800  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; 138B      ; SHU_MA_GUAN_WEI_ZHI_Signal ; 7.689  ; 7.507  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DA    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 12.703 ; 12.731 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DB    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 12.470 ; 12.605 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DC    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 13.074 ; 13.201 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DD    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 11.707 ; 11.933 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DE    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 11.322 ; 11.574 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DF    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 11.195 ; 11.274 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DG    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 11.392 ; 11.504 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
++-----------+----------------------------+--------+--------+------------+----------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                                      ;
++-----------+----------------------------+--------+--------+------------+----------------------------+
+; Data Port ; Clock Port                 ; Rise   ; Fall   ; Clock Edge ; Clock Reference            ;
++-----------+----------------------------+--------+--------+------------+----------------------------+
+; DZA       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 9.203  ; 8.832  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZB       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 8.211  ; 8.089  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZC       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 6.468  ; 6.358  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZD       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 6.572  ; 6.544  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O5        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 6.851  ; 6.677  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O6        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 8.457  ; 8.431  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O7        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 6.636  ; 6.455  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O8        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 7.835  ; 7.562  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O9        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 7.450  ; 7.218  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O10       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 6.974  ; 6.757  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; 138A      ; SHU_MA_GUAN_WEI_ZHI_Signal ; 6.787  ; 6.645  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; 138B      ; SHU_MA_GUAN_WEI_ZHI_Signal ; 7.500  ; 7.323  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DA    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 10.372 ; 10.420 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DB    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 10.120 ; 10.421 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DC    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 10.627 ; 10.928 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DD    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 9.352  ; 9.582  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DE    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 9.045  ; 9.536  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DF    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 9.022  ; 8.994  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DG    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 9.040  ; 9.219  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
++-----------+----------------------------+--------+--------+------------+----------------------------+
+
+
++--------------------------------------------------------------+
+; Propagation Delay                                            ;
++------------+-------------+--------+--------+--------+--------+
+; Input Port ; Output Port ; RR     ; RF     ; FR     ; FF     ;
++------------+-------------+--------+--------+--------+--------+
+; A0         ; SEG_DA      ; 21.021 ; 21.061 ; 20.887 ; 20.927 ;
+; A0         ; SEG_DB      ; 20.775 ; 20.952 ; 20.641 ; 20.818 ;
+; A0         ; SEG_DC      ; 21.362 ; 21.562 ; 21.228 ; 21.428 ;
+; A0         ; SEG_DD      ; 19.995 ; 20.221 ; 19.861 ; 20.087 ;
+; A0         ; SEG_DE      ; 19.466 ; 19.862 ; 19.332 ; 19.728 ;
+; A0         ; SEG_DF      ; 19.483 ; 19.587 ; 19.349 ; 19.453 ;
+; A0         ; SEG_DG      ; 19.684 ; 19.821 ; 19.550 ; 19.687 ;
+; A1         ; SEG_DA      ; 22.823 ; 22.863 ; 23.188 ; 23.228 ;
+; A1         ; SEG_DB      ; 22.577 ; 22.754 ; 22.942 ; 23.119 ;
+; A1         ; SEG_DC      ; 23.164 ; 23.364 ; 23.529 ; 23.729 ;
+; A1         ; SEG_DD      ; 21.797 ; 22.023 ; 22.162 ; 22.388 ;
+; A1         ; SEG_DE      ; 21.268 ; 21.664 ; 21.633 ; 22.029 ;
+; A1         ; SEG_DF      ; 21.285 ; 21.389 ; 21.650 ; 21.754 ;
+; A1         ; SEG_DG      ; 21.486 ; 21.623 ; 21.851 ; 21.988 ;
+; A2         ; SEG_DA      ; 22.998 ; 23.038 ; 23.504 ; 23.544 ;
+; A2         ; SEG_DB      ; 22.752 ; 22.929 ; 23.258 ; 23.435 ;
+; A2         ; SEG_DC      ; 23.339 ; 23.539 ; 23.845 ; 24.045 ;
+; A2         ; SEG_DD      ; 21.972 ; 22.198 ; 22.478 ; 22.704 ;
+; A2         ; SEG_DE      ; 21.443 ; 21.839 ; 21.949 ; 22.345 ;
+; A2         ; SEG_DF      ; 21.460 ; 21.564 ; 21.966 ; 22.070 ;
+; A2         ; SEG_DG      ; 21.661 ; 21.798 ; 22.167 ; 22.304 ;
+; A3         ; SEG_DA      ; 23.122 ; 23.162 ; 23.473 ; 23.513 ;
+; A3         ; SEG_DB      ; 22.876 ; 23.053 ; 23.227 ; 23.404 ;
+; A3         ; SEG_DC      ; 23.463 ; 23.663 ; 23.814 ; 24.014 ;
+; A3         ; SEG_DD      ; 22.096 ; 22.322 ; 22.447 ; 22.673 ;
+; A3         ; SEG_DE      ; 21.567 ; 21.963 ; 21.918 ; 22.314 ;
+; A3         ; SEG_DF      ; 21.584 ; 21.688 ; 21.935 ; 22.039 ;
+; A3         ; SEG_DG      ; 21.785 ; 21.922 ; 22.136 ; 22.273 ;
+; B0         ; SEG_DA      ; 19.041 ; 19.081 ; 19.374 ; 19.414 ;
+; B0         ; SEG_DB      ; 18.795 ; 18.972 ; 19.128 ; 19.305 ;
+; B0         ; SEG_DC      ; 19.382 ; 19.582 ; 19.715 ; 19.915 ;
+; B0         ; SEG_DD      ; 18.015 ; 18.241 ; 18.348 ; 18.574 ;
+; B0         ; SEG_DE      ; 17.486 ; 17.882 ; 17.819 ; 18.215 ;
+; B0         ; SEG_DF      ; 17.503 ; 17.607 ; 17.836 ; 17.940 ;
+; B0         ; SEG_DG      ; 17.704 ; 17.841 ; 18.037 ; 18.174 ;
+; B1         ; SEG_DA      ; 19.916 ; 19.956 ; 20.128 ; 20.168 ;
+; B1         ; SEG_DB      ; 19.670 ; 19.847 ; 19.882 ; 20.059 ;
+; B1         ; SEG_DC      ; 20.257 ; 20.457 ; 20.469 ; 20.669 ;
+; B1         ; SEG_DD      ; 18.890 ; 19.116 ; 19.102 ; 19.328 ;
+; B1         ; SEG_DE      ; 18.361 ; 18.757 ; 18.573 ; 18.969 ;
+; B1         ; SEG_DF      ; 18.378 ; 18.482 ; 18.590 ; 18.694 ;
+; B1         ; SEG_DG      ; 18.579 ; 18.716 ; 18.791 ; 18.928 ;
+; B2         ; SEG_DA      ; 19.847 ; 19.887 ; 20.088 ; 20.128 ;
+; B2         ; SEG_DB      ; 19.601 ; 19.778 ; 19.842 ; 20.019 ;
+; B2         ; SEG_DC      ; 20.188 ; 20.388 ; 20.429 ; 20.629 ;
+; B2         ; SEG_DD      ; 18.821 ; 19.047 ; 19.062 ; 19.288 ;
+; B2         ; SEG_DE      ; 18.292 ; 18.688 ; 18.533 ; 18.929 ;
+; B2         ; SEG_DF      ; 18.309 ; 18.413 ; 18.550 ; 18.654 ;
+; B2         ; SEG_DG      ; 18.510 ; 18.647 ; 18.751 ; 18.888 ;
+; B3         ; SEG_DA      ; 19.457 ; 19.497 ; 19.673 ; 19.713 ;
+; B3         ; SEG_DB      ; 19.211 ; 19.388 ; 19.427 ; 19.604 ;
+; B3         ; SEG_DC      ; 19.798 ; 19.998 ; 20.014 ; 20.214 ;
+; B3         ; SEG_DD      ; 18.431 ; 18.657 ; 18.647 ; 18.873 ;
+; B3         ; SEG_DE      ; 17.902 ; 18.298 ; 18.118 ; 18.514 ;
+; B3         ; SEG_DF      ; 17.919 ; 18.023 ; 18.135 ; 18.239 ;
+; B3         ; SEG_DG      ; 18.120 ; 18.257 ; 18.336 ; 18.473 ;
++------------+-------------+--------+--------+--------+--------+
+
+
++--------------------------------------------------------------+
+; Minimum Propagation Delay                                    ;
++------------+-------------+--------+--------+--------+--------+
+; Input Port ; Output Port ; RR     ; RF     ; FR     ; FF     ;
++------------+-------------+--------+--------+--------+--------+
+; A0         ; SEG_DA      ; 14.393 ; 14.388 ; 14.394 ; 14.389 ;
+; A0         ; SEG_DB      ; 14.148 ; 14.226 ; 14.149 ; 14.227 ;
+; A0         ; SEG_DC      ; 14.832 ; 14.808 ; 14.773 ; 14.809 ;
+; A0         ; SEG_DD      ; 13.374 ; 13.563 ; 13.375 ; 13.564 ;
+; A0         ; SEG_DE      ; 13.066 ; 13.436 ; 13.067 ; 13.398 ;
+; A0         ; SEG_DF      ; 12.852 ; 13.180 ; 12.853 ; 13.126 ;
+; A0         ; SEG_DG      ; 13.046 ; 13.405 ; 13.047 ; 13.351 ;
+; A1         ; SEG_DA      ; 13.488 ; 13.505 ; 13.498 ; 13.586 ;
+; A1         ; SEG_DB      ; 13.242 ; 13.337 ; 13.252 ; 13.444 ;
+; A1         ; SEG_DC      ; 13.750 ; 13.948 ; 13.764 ; 14.273 ;
+; A1         ; SEG_DD      ; 12.475 ; 12.680 ; 12.505 ; 12.714 ;
+; A1         ; SEG_DE      ; 12.168 ; 12.387 ; 12.521 ; 12.397 ;
+; A1         ; SEG_DF      ; 11.946 ; 12.079 ; 11.956 ; 12.351 ;
+; A1         ; SEG_DG      ; 12.163 ; 12.304 ; 12.178 ; 12.382 ;
+; A2         ; SEG_DA      ; 12.923 ; 12.885 ; 12.817 ; 12.899 ;
+; A2         ; SEG_DB      ; 12.822 ; 12.723 ; 12.565 ; 13.420 ;
+; A2         ; SEG_DC      ; 13.217 ; 13.290 ; 13.072 ; 13.373 ;
+; A2         ; SEG_DD      ; 11.853 ; 12.043 ; 11.797 ; 12.027 ;
+; A2         ; SEG_DE      ; 12.035 ; 11.717 ; 11.490 ; 12.552 ;
+; A2         ; SEG_DF      ; 11.345 ; 11.684 ; 12.007 ; 11.467 ;
+; A2         ; SEG_DG      ; 11.577 ; 11.666 ; 11.485 ; 11.695 ;
+; A3         ; SEG_DA      ; 13.783 ; 13.865 ; 14.226 ; 14.188 ;
+; A3         ; SEG_DB      ; 13.531 ; 13.947 ; 14.055 ; 14.026 ;
+; A3         ; SEG_DC      ; 14.038 ; 14.339 ; 14.520 ; 14.593 ;
+; A3         ; SEG_DD      ; 12.763 ; 12.993 ; 13.156 ; 13.346 ;
+; A3         ; SEG_DE      ; 12.456 ; 12.900 ; 13.214 ; 13.020 ;
+; A3         ; SEG_DF      ; 12.459 ; 12.433 ; 12.648 ; 12.917 ;
+; A3         ; SEG_DG      ; 12.451 ; 12.661 ; 12.880 ; 12.969 ;
+; B0         ; SEG_DA      ; 13.040 ; 13.035 ; 13.223 ; 13.218 ;
+; B0         ; SEG_DB      ; 12.795 ; 12.873 ; 12.978 ; 13.056 ;
+; B0         ; SEG_DC      ; 13.417 ; 13.455 ; 13.669 ; 13.638 ;
+; B0         ; SEG_DD      ; 12.021 ; 12.210 ; 12.204 ; 12.393 ;
+; B0         ; SEG_DE      ; 11.713 ; 12.021 ; 11.896 ; 12.273 ;
+; B0         ; SEG_DF      ; 11.499 ; 11.765 ; 11.682 ; 12.017 ;
+; B0         ; SEG_DG      ; 11.693 ; 11.990 ; 11.876 ; 12.242 ;
+; B1         ; SEG_DA      ; 13.537 ; 13.532 ; 13.576 ; 13.664 ;
+; B1         ; SEG_DB      ; 13.292 ; 13.370 ; 13.330 ; 13.522 ;
+; B1         ; SEG_DC      ; 13.907 ; 13.952 ; 13.842 ; 14.244 ;
+; B1         ; SEG_DD      ; 12.518 ; 12.707 ; 12.583 ; 12.792 ;
+; B1         ; SEG_DE      ; 12.210 ; 12.540 ; 12.502 ; 12.475 ;
+; B1         ; SEG_DF      ; 11.996 ; 12.229 ; 12.034 ; 12.480 ;
+; B1         ; SEG_DG      ; 12.190 ; 12.454 ; 12.256 ; 12.460 ;
+; B2         ; SEG_DA      ; 13.604 ; 13.599 ; 13.921 ; 13.965 ;
+; B2         ; SEG_DB      ; 13.359 ; 13.437 ; 13.677 ; 13.836 ;
+; B2         ; SEG_DC      ; 13.884 ; 14.019 ; 14.186 ; 14.418 ;
+; B2         ; SEG_DD      ; 12.585 ; 12.774 ; 12.984 ; 13.173 ;
+; B2         ; SEG_DE      ; 12.277 ; 12.654 ; 12.676 ; 12.984 ;
+; B2         ; SEG_DF      ; 12.063 ; 12.237 ; 12.462 ; 12.539 ;
+; B2         ; SEG_DG      ; 12.257 ; 12.462 ; 12.656 ; 12.764 ;
+; B3         ; SEG_DA      ; 13.053 ; 13.048 ; 13.169 ; 13.164 ;
+; B3         ; SEG_DB      ; 12.808 ; 12.886 ; 12.924 ; 13.002 ;
+; B3         ; SEG_DC      ; 13.430 ; 13.468 ; 13.615 ; 13.584 ;
+; B3         ; SEG_DD      ; 12.034 ; 12.223 ; 12.150 ; 12.339 ;
+; B3         ; SEG_DE      ; 11.726 ; 12.034 ; 11.842 ; 12.219 ;
+; B3         ; SEG_DF      ; 11.512 ; 11.778 ; 11.628 ; 11.963 ;
+; B3         ; SEG_DG      ; 11.706 ; 12.003 ; 11.822 ; 12.188 ;
++------------+-------------+--------+--------+--------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                                          ;
++-------------+-----------------+----------------------------+---------------------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name                 ; Note                                                          ;
++-------------+-----------------+----------------------------+---------------------------------------------------------------+
+; 539.08 MHz  ; 250.0 MHz       ; DIAN_ZHEN_ROW_SAO_MIAO     ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 1034.13 MHz ; 250.0 MHz       ; SHU_MA_GUAN_WEI_ZHI_Signal ; limit due to minimum period restriction (max I/O toggle rate) ;
++-------------+-----------------+----------------------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-----------------------------------------------------+
+; Slow 1200mV 0C Model Setup Summary                  ;
++----------------------------+--------+---------------+
+; Clock                      ; Slack  ; End Point TNS ;
++----------------------------+--------+---------------+
+; DIAN_ZHEN_ROW_SAO_MIAO     ; -0.855 ; -3.153        ;
+; SHU_MA_GUAN_WEI_ZHI_Signal ; 0.033  ; 0.000         ;
++----------------------------+--------+---------------+
+
+
++----------------------------------------------------+
+; Slow 1200mV 0C Model Hold Summary                  ;
++----------------------------+-------+---------------+
+; Clock                      ; Slack ; End Point TNS ;
++----------------------------+-------+---------------+
+; DIAN_ZHEN_ROW_SAO_MIAO     ; 0.402 ; 0.000         ;
+; SHU_MA_GUAN_WEI_ZHI_Signal ; 0.402 ; 0.000         ;
++----------------------------+-------+---------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width                                                                                                                       ;
++--------+--------------+----------------+-------+------------------+----------------------------+------------+--------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; CCPP  ; Type             ; Clock                      ; Clock Edge ; Target                                           ;
++--------+--------------+----------------+-------+------------------+----------------------------+------------+--------------------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; 0.000 ; Port Rate        ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO                           ;
+; -3.000 ; 1.000        ; 4.000          ; 0.000 ; Port Rate        ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal                       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|110                      ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|87                       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|9                        ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|99                       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; 74161:inst49|f74161:sub|87                       ;
+; -1.857 ; 1.000        ; 2.857          ; 0.000 ; Min Period       ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; 74161:inst49|f74161:sub|9                        ;
+; 0.297  ; 0.398        ; 0.184          ; 0.083 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|110                      ;
+; 0.297  ; 0.398        ; 0.184          ; 0.083 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|87                       ;
+; 0.297  ; 0.398        ; 0.184          ; 0.083 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|9                        ;
+; 0.297  ; 0.398        ; 0.184          ; 0.083 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|99                       ;
+; 0.299  ; 0.399        ; 0.184          ; 0.084 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; 74161:inst49|f74161:sub|87                       ;
+; 0.299  ; 0.399        ; 0.184          ; 0.084 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; 74161:inst49|f74161:sub|9                        ;
+; 0.300  ; 0.432        ; 0.216          ; 0.084 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; 74161:inst49|f74161:sub|87                       ;
+; 0.300  ; 0.432        ; 0.216          ; 0.084 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; 74161:inst49|f74161:sub|9                        ;
+; 0.301  ; 0.434        ; 0.216          ; 0.083 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|110                      ;
+; 0.301  ; 0.434        ; 0.216          ; 0.083 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|87                       ;
+; 0.301  ; 0.434        ; 0.216          ; 0.083 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|9                        ;
+; 0.301  ; 0.434        ; 0.216          ; 0.083 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|99                       ;
+; 0.429  ; 0.388        ; 0.000          ; 0.041 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|110|clk                               ;
+; 0.429  ; 0.388        ; 0.000          ; 0.041 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|87|clk                                ;
+; 0.429  ; 0.388        ; 0.000          ; 0.041 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|99|clk                                ;
+; 0.429  ; 0.388        ; 0.000          ; 0.041 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|9|clk                                 ;
+; 0.430  ; 0.389        ; 0.000          ; 0.041 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; inst49|sub|87|clk                                ;
+; 0.430  ; 0.389        ; 0.000          ; 0.041 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; inst49|sub|9|clk                                 ;
+; 0.449  ; 0.449        ; 0.000          ; 0.000 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~input|o                   ;
+; 0.449  ; 0.449        ; 0.000          ; 0.000 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~input|o               ;
+; 0.453  ; 0.445        ; 0.000          ; 0.008 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~inputclkctrl|inclk[0]     ;
+; 0.453  ; 0.445        ; 0.000          ; 0.008 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~inputclkctrl|outclk       ;
+; 0.453  ; 0.445        ; 0.000          ; 0.008 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~inputclkctrl|inclk[0] ;
+; 0.453  ; 0.445        ; 0.000          ; 0.008 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~inputclkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~input|i                   ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~input|i                   ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~input|i               ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~input|i               ;
+; 0.547  ; 0.539        ; 0.000          ; 0.008 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~inputclkctrl|inclk[0]     ;
+; 0.547  ; 0.539        ; 0.000          ; 0.008 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~inputclkctrl|outclk       ;
+; 0.547  ; 0.539        ; 0.000          ; 0.008 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~inputclkctrl|inclk[0] ;
+; 0.547  ; 0.539        ; 0.000          ; 0.008 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~inputclkctrl|outclk   ;
+; 0.551  ; 0.551        ; 0.000          ; 0.000 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~input|o                   ;
+; 0.551  ; 0.551        ; 0.000          ; 0.000 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~input|o               ;
+; 0.568  ; 0.527        ; 0.000          ; 0.041 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; inst49|sub|87|clk                                ;
+; 0.568  ; 0.527        ; 0.000          ; 0.041 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; inst49|sub|9|clk                                 ;
+; 0.570  ; 0.529        ; 0.000          ; 0.041 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|110|clk                               ;
+; 0.570  ; 0.529        ; 0.000          ; 0.041 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|87|clk                                ;
+; 0.570  ; 0.529        ; 0.000          ; 0.041 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|99|clk                                ;
+; 0.570  ; 0.529        ; 0.000          ; 0.041 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|9|clk                                 ;
++--------+--------------+----------------+-------+------------------+----------------------------+------------+--------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------+
+; Setup Times                                                                              ;
++-----------+------------------------+-------+-------+------------+------------------------+
+; Data Port ; Clock Port             ; Rise  ; Fall  ; Clock Edge ; Clock Reference        ;
++-----------+------------------------+-------+-------+------------+------------------------+
+; A0        ; DIAN_ZHEN_ROW_SAO_MIAO ; 5.510 ; 5.157 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A1        ; DIAN_ZHEN_ROW_SAO_MIAO ; 6.153 ; 6.112 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A2        ; DIAN_ZHEN_ROW_SAO_MIAO ; 6.332 ; 6.324 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A3        ; DIAN_ZHEN_ROW_SAO_MIAO ; 6.457 ; 6.379 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B0        ; DIAN_ZHEN_ROW_SAO_MIAO ; 4.701 ; 4.542 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B1        ; DIAN_ZHEN_ROW_SAO_MIAO ; 6.724 ; 6.796 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B2        ; DIAN_ZHEN_ROW_SAO_MIAO ; 6.566 ; 7.021 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B3        ; DIAN_ZHEN_ROW_SAO_MIAO ; 6.281 ; 6.240 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
++-----------+------------------------+-------+-------+------------+------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Hold Times                                                                                 ;
++-----------+------------------------+--------+--------+------------+------------------------+
+; Data Port ; Clock Port             ; Rise   ; Fall   ; Clock Edge ; Clock Reference        ;
++-----------+------------------------+--------+--------+------------+------------------------+
+; A0        ; DIAN_ZHEN_ROW_SAO_MIAO ; -4.269 ; -3.946 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A1        ; DIAN_ZHEN_ROW_SAO_MIAO ; -4.171 ; -4.785 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A2        ; DIAN_ZHEN_ROW_SAO_MIAO ; -4.366 ; -4.919 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A3        ; DIAN_ZHEN_ROW_SAO_MIAO ; -4.618 ; -4.296 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B0        ; DIAN_ZHEN_ROW_SAO_MIAO ; -3.487 ; -3.353 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B1        ; DIAN_ZHEN_ROW_SAO_MIAO ; -4.964 ; -5.327 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B2        ; DIAN_ZHEN_ROW_SAO_MIAO ; -5.077 ; -5.336 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B3        ; DIAN_ZHEN_ROW_SAO_MIAO ; -3.734 ; -3.660 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
++-----------+------------------------+--------+--------+------------+------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                              ;
++-----------+----------------------------+--------+--------+------------+----------------------------+
+; Data Port ; Clock Port                 ; Rise   ; Fall   ; Clock Edge ; Clock Reference            ;
++-----------+----------------------------+--------+--------+------------+----------------------------+
+; DZA       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 9.098  ; 8.523  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZB       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 8.121  ; 7.778  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZC       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 6.343  ; 6.178  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZD       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 6.441  ; 6.351  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O5        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 7.089  ; 6.879  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O6        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 8.666  ; 8.477  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O7        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 6.942  ; 6.650  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O8        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 8.047  ; 7.747  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O9        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 7.667  ; 7.417  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O10       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 7.237  ; 6.887  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; 138A      ; SHU_MA_GUAN_WEI_ZHI_Signal ; 6.660  ; 6.445  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; 138B      ; SHU_MA_GUAN_WEI_ZHI_Signal ; 7.373  ; 7.096  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DA    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 12.177 ; 12.251 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DB    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 11.548 ; 12.066 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DC    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 12.340 ; 12.618 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DD    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 11.121 ; 11.437 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DE    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 10.515 ; 11.086 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DF    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 10.658 ; 10.529 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DG    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 10.833 ; 11.020 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
++-----------+----------------------------+--------+--------+------------+----------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                                     ;
++-----------+----------------------------+-------+--------+------------+----------------------------+
+; Data Port ; Clock Port                 ; Rise  ; Fall   ; Clock Edge ; Clock Reference            ;
++-----------+----------------------------+-------+--------+------------+----------------------------+
+; DZA       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 8.854 ; 8.301  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZB       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 7.915 ; 7.585  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZC       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 6.210 ; 6.050  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZD       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 6.304 ; 6.216  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O5        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 6.572 ; 6.335  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O6        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 8.181 ; 8.052  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O7        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 6.386 ; 6.127  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O8        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 7.534 ; 7.155  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O9        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 7.168 ; 6.837  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O10       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 6.714 ; 6.399  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; 138A      ; SHU_MA_GUAN_WEI_ZHI_Signal ; 6.514 ; 6.305  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; 138B      ; SHU_MA_GUAN_WEI_ZHI_Signal ; 7.198 ; 6.930  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DA    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 9.844 ; 9.948  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DB    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 9.458 ; 9.900  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DC    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 9.912 ; 10.361 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DD    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 8.766 ; 9.086  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DE    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 8.491 ; 9.147  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DF    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 8.529 ; 8.518  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DG    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 8.484 ; 8.744  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
++-----------+----------------------------+-------+--------+------------+----------------------------+
+
+
++--------------------------------------------------------------+
+; Propagation Delay                                            ;
++------------+-------------+--------+--------+--------+--------+
+; Input Port ; Output Port ; RR     ; RF     ; FR     ; FF     ;
++------------+-------------+--------+--------+--------+--------+
+; A0         ; SEG_DA      ; 20.086 ; 20.178 ; 19.570 ; 19.662 ;
+; A0         ; SEG_DB      ; 19.685 ; 20.010 ; 19.169 ; 19.494 ;
+; A0         ; SEG_DC      ; 20.213 ; 20.609 ; 19.697 ; 20.093 ;
+; A0         ; SEG_DD      ; 18.994 ; 19.310 ; 18.478 ; 18.794 ;
+; A0         ; SEG_DE      ; 18.392 ; 18.959 ; 17.876 ; 18.443 ;
+; A0         ; SEG_DF      ; 18.544 ; 18.680 ; 18.028 ; 18.164 ;
+; A0         ; SEG_DG      ; 18.722 ; 18.916 ; 18.206 ; 18.400 ;
+; A1         ; SEG_DA      ; 21.573 ; 21.665 ; 22.063 ; 22.155 ;
+; A1         ; SEG_DB      ; 21.172 ; 21.497 ; 21.662 ; 21.987 ;
+; A1         ; SEG_DC      ; 21.700 ; 22.096 ; 22.190 ; 22.586 ;
+; A1         ; SEG_DD      ; 20.481 ; 20.797 ; 20.971 ; 21.287 ;
+; A1         ; SEG_DE      ; 19.879 ; 20.446 ; 20.369 ; 20.936 ;
+; A1         ; SEG_DF      ; 20.031 ; 20.167 ; 20.521 ; 20.657 ;
+; A1         ; SEG_DG      ; 20.209 ; 20.403 ; 20.699 ; 20.893 ;
+; A2         ; SEG_DA      ; 21.752 ; 21.844 ; 22.328 ; 22.420 ;
+; A2         ; SEG_DB      ; 21.351 ; 21.676 ; 21.927 ; 22.252 ;
+; A2         ; SEG_DC      ; 21.879 ; 22.275 ; 22.455 ; 22.851 ;
+; A2         ; SEG_DD      ; 20.660 ; 20.976 ; 21.236 ; 21.552 ;
+; A2         ; SEG_DE      ; 20.058 ; 20.625 ; 20.634 ; 21.201 ;
+; A2         ; SEG_DF      ; 20.210 ; 20.346 ; 20.786 ; 20.922 ;
+; A2         ; SEG_DG      ; 20.388 ; 20.582 ; 20.964 ; 21.158 ;
+; A3         ; SEG_DA      ; 21.877 ; 21.969 ; 22.150 ; 22.242 ;
+; A3         ; SEG_DB      ; 21.476 ; 21.801 ; 21.749 ; 22.074 ;
+; A3         ; SEG_DC      ; 22.004 ; 22.400 ; 22.277 ; 22.673 ;
+; A3         ; SEG_DD      ; 20.785 ; 21.101 ; 21.058 ; 21.374 ;
+; A3         ; SEG_DE      ; 20.183 ; 20.750 ; 20.456 ; 21.023 ;
+; A3         ; SEG_DF      ; 20.335 ; 20.471 ; 20.608 ; 20.744 ;
+; A3         ; SEG_DG      ; 20.513 ; 20.707 ; 20.786 ; 20.980 ;
+; B0         ; SEG_DA      ; 18.116 ; 18.208 ; 18.216 ; 18.308 ;
+; B0         ; SEG_DB      ; 17.715 ; 18.040 ; 17.815 ; 18.140 ;
+; B0         ; SEG_DC      ; 18.243 ; 18.639 ; 18.343 ; 18.739 ;
+; B0         ; SEG_DD      ; 17.024 ; 17.340 ; 17.124 ; 17.440 ;
+; B0         ; SEG_DE      ; 16.422 ; 16.989 ; 16.522 ; 17.089 ;
+; B0         ; SEG_DF      ; 16.574 ; 16.710 ; 16.674 ; 16.810 ;
+; B0         ; SEG_DG      ; 16.752 ; 16.946 ; 16.852 ; 17.046 ;
+; B1         ; SEG_DA      ; 18.863 ; 18.955 ; 18.993 ; 19.085 ;
+; B1         ; SEG_DB      ; 18.462 ; 18.787 ; 18.592 ; 18.917 ;
+; B1         ; SEG_DC      ; 18.990 ; 19.386 ; 19.120 ; 19.516 ;
+; B1         ; SEG_DD      ; 17.771 ; 18.087 ; 17.901 ; 18.217 ;
+; B1         ; SEG_DE      ; 17.169 ; 17.736 ; 17.299 ; 17.866 ;
+; B1         ; SEG_DF      ; 17.321 ; 17.457 ; 17.451 ; 17.587 ;
+; B1         ; SEG_DG      ; 17.499 ; 17.693 ; 17.629 ; 17.823 ;
+; B2         ; SEG_DA      ; 18.733 ; 18.825 ; 18.982 ; 19.074 ;
+; B2         ; SEG_DB      ; 18.332 ; 18.657 ; 18.581 ; 18.906 ;
+; B2         ; SEG_DC      ; 18.860 ; 19.256 ; 19.109 ; 19.505 ;
+; B2         ; SEG_DD      ; 17.641 ; 17.957 ; 17.890 ; 18.206 ;
+; B2         ; SEG_DE      ; 17.039 ; 17.606 ; 17.288 ; 17.855 ;
+; B2         ; SEG_DF      ; 17.191 ; 17.327 ; 17.440 ; 17.576 ;
+; B2         ; SEG_DG      ; 17.369 ; 17.563 ; 17.618 ; 17.812 ;
+; B3         ; SEG_DA      ; 18.420 ; 18.512 ; 18.595 ; 18.687 ;
+; B3         ; SEG_DB      ; 18.019 ; 18.344 ; 18.194 ; 18.519 ;
+; B3         ; SEG_DC      ; 18.547 ; 18.943 ; 18.722 ; 19.118 ;
+; B3         ; SEG_DD      ; 17.328 ; 17.644 ; 17.503 ; 17.819 ;
+; B3         ; SEG_DE      ; 16.726 ; 17.293 ; 16.901 ; 17.468 ;
+; B3         ; SEG_DF      ; 16.878 ; 17.014 ; 17.053 ; 17.189 ;
+; B3         ; SEG_DG      ; 17.056 ; 17.250 ; 17.231 ; 17.425 ;
++------------+-------------+--------+--------+--------+--------+
+
+
++--------------------------------------------------------------+
+; Minimum Propagation Delay                                    ;
++------------+-------------+--------+--------+--------+--------+
+; Input Port ; Output Port ; RR     ; RF     ; FR     ; FF     ;
++------------+-------------+--------+--------+--------+--------+
+; A0         ; SEG_DA      ; 13.649 ; 13.698 ; 13.329 ; 13.378 ;
+; A0         ; SEG_DB      ; 13.270 ; 13.478 ; 12.950 ; 13.158 ;
+; A0         ; SEG_DC      ; 13.986 ; 14.044 ; 13.483 ; 13.724 ;
+; A0         ; SEG_DD      ; 12.571 ; 12.857 ; 12.251 ; 12.537 ;
+; A0         ; SEG_DE      ; 12.295 ; 12.822 ; 11.975 ; 12.467 ;
+; A0         ; SEG_DF      ; 12.107 ; 12.568 ; 11.787 ; 12.068 ;
+; A0         ; SEG_DG      ; 12.276 ; 12.794 ; 11.956 ; 12.294 ;
+; A1         ; SEG_DA      ; 12.654 ; 12.778 ; 12.512 ; 12.643 ;
+; A1         ; SEG_DB      ; 12.268 ; 12.618 ; 12.132 ; 12.441 ;
+; A1         ; SEG_DC      ; 12.722 ; 13.171 ; 12.589 ; 13.400 ;
+; A1         ; SEG_DD      ; 11.576 ; 11.896 ; 11.460 ; 11.760 ;
+; A1         ; SEG_DE      ; 11.301 ; 11.622 ; 11.639 ; 11.445 ;
+; A1         ; SEG_DF      ; 11.146 ; 11.339 ; 10.969 ; 11.414 ;
+; A1         ; SEG_DG      ; 11.294 ; 11.572 ; 11.164 ; 11.436 ;
+; A2         ; SEG_DA      ; 12.211 ; 12.303 ; 11.894 ; 12.018 ;
+; A2         ; SEG_DB      ; 11.833 ; 12.093 ; 11.508 ; 12.545 ;
+; A2         ; SEG_DC      ; 12.288 ; 12.642 ; 11.962 ; 12.411 ;
+; A2         ; SEG_DD      ; 11.175 ; 11.453 ; 10.816 ; 11.136 ;
+; A2         ; SEG_DE      ; 11.129 ; 11.136 ; 10.541 ; 11.580 ;
+; A2         ; SEG_DF      ; 10.716 ; 10.873 ; 11.104 ; 10.579 ;
+; A2         ; SEG_DG      ; 10.929 ; 11.089 ; 10.534 ; 10.812 ;
+; A3         ; SEG_DA      ; 12.945 ; 13.069 ; 13.204 ; 13.296 ;
+; A3         ; SEG_DB      ; 12.559 ; 13.036 ; 12.826 ; 13.127 ;
+; A3         ; SEG_DC      ; 13.013 ; 13.462 ; 13.281 ; 13.676 ;
+; A3         ; SEG_DD      ; 11.867 ; 12.187 ; 12.209 ; 12.487 ;
+; A3         ; SEG_DE      ; 11.592 ; 12.040 ; 12.122 ; 12.170 ;
+; A3         ; SEG_DF      ; 11.564 ; 11.630 ; 11.750 ; 11.866 ;
+; A3         ; SEG_DG      ; 11.585 ; 11.863 ; 11.963 ; 12.092 ;
+; B0         ; SEG_DA      ; 12.301 ; 12.350 ; 12.270 ; 12.319 ;
+; B0         ; SEG_DB      ; 11.922 ; 12.130 ; 11.891 ; 12.099 ;
+; B0         ; SEG_DC      ; 12.577 ; 12.696 ; 12.610 ; 12.665 ;
+; B0         ; SEG_DD      ; 11.223 ; 11.509 ; 11.192 ; 11.478 ;
+; B0         ; SEG_DE      ; 10.947 ; 11.413 ; 10.916 ; 11.446 ;
+; B0         ; SEG_DF      ; 10.759 ; 11.159 ; 10.728 ; 11.192 ;
+; B0         ; SEG_DG      ; 10.928 ; 11.385 ; 10.897 ; 11.418 ;
+; B1         ; SEG_DA      ; 12.653 ; 12.702 ; 12.561 ; 12.692 ;
+; B1         ; SEG_DB      ; 12.274 ; 12.482 ; 12.181 ; 12.490 ;
+; B1         ; SEG_DC      ; 12.919 ; 13.048 ; 12.638 ; 13.316 ;
+; B1         ; SEG_DD      ; 11.575 ; 11.861 ; 11.509 ; 11.809 ;
+; B1         ; SEG_DE      ; 11.299 ; 11.775 ; 11.567 ; 11.494 ;
+; B1         ; SEG_DF      ; 11.111 ; 11.575 ; 11.018 ; 11.484 ;
+; B1         ; SEG_DG      ; 11.280 ; 11.766 ; 11.213 ; 11.485 ;
+; B2         ; SEG_DA      ; 12.714 ; 12.789 ; 12.886 ; 12.978 ;
+; B2         ; SEG_DB      ; 12.336 ; 12.569 ; 12.508 ; 12.902 ;
+; B2         ; SEG_DC      ; 12.791 ; 13.135 ; 12.963 ; 13.468 ;
+; B2         ; SEG_DD      ; 11.662 ; 11.948 ; 11.922 ; 12.242 ;
+; B2         ; SEG_DE      ; 11.386 ; 11.837 ; 11.647 ; 12.113 ;
+; B2         ; SEG_DF      ; 11.198 ; 11.376 ; 11.531 ; 11.548 ;
+; B2         ; SEG_DG      ; 11.367 ; 11.602 ; 11.640 ; 11.774 ;
+; B3         ; SEG_DA      ; 12.307 ; 12.356 ; 12.214 ; 12.263 ;
+; B3         ; SEG_DB      ; 11.928 ; 12.136 ; 11.835 ; 12.043 ;
+; B3         ; SEG_DC      ; 12.583 ; 12.702 ; 12.554 ; 12.609 ;
+; B3         ; SEG_DD      ; 11.229 ; 11.515 ; 11.136 ; 11.422 ;
+; B3         ; SEG_DE      ; 10.953 ; 11.419 ; 10.860 ; 11.390 ;
+; B3         ; SEG_DF      ; 10.765 ; 11.165 ; 10.672 ; 11.136 ;
+; B3         ; SEG_DG      ; 10.934 ; 11.391 ; 10.841 ; 11.362 ;
++------------+-------------+--------+--------+--------+--------+
+
+
++----------------------------------------------------+
+; Fast 1200mV 0C Model Setup Summary                 ;
++----------------------------+-------+---------------+
+; Clock                      ; Slack ; End Point TNS ;
++----------------------------+-------+---------------+
+; DIAN_ZHEN_ROW_SAO_MIAO     ; 0.109 ; 0.000         ;
+; SHU_MA_GUAN_WEI_ZHI_Signal ; 0.539 ; 0.000         ;
++----------------------------+-------+---------------+
+
+
++----------------------------------------------------+
+; Fast 1200mV 0C Model Hold Summary                  ;
++----------------------------+-------+---------------+
+; Clock                      ; Slack ; End Point TNS ;
++----------------------------+-------+---------------+
+; DIAN_ZHEN_ROW_SAO_MIAO     ; 0.186 ; 0.000         ;
+; SHU_MA_GUAN_WEI_ZHI_Signal ; 0.186 ; 0.000         ;
++----------------------------+-------+---------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width                                                                                                                       ;
++--------+--------------+----------------+-------+------------------+----------------------------+------------+--------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; CCPP  ; Type             ; Clock                      ; Clock Edge ; Target                                           ;
++--------+--------------+----------------+-------+------------------+----------------------------+------------+--------------------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; 0.000 ; Port Rate        ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO                           ;
+; -3.000 ; 1.000        ; 4.000          ; 0.000 ; Port Rate        ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal                       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|110                      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|87                       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|9                        ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|99                       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; 74161:inst49|f74161:sub|87                       ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; 74161:inst49|f74161:sub|9                        ;
+; -0.061 ; 0.078        ; 0.184          ; 0.045 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|110                      ;
+; -0.061 ; 0.078        ; 0.184          ; 0.045 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|87                       ;
+; -0.061 ; 0.078        ; 0.184          ; 0.045 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|9                        ;
+; -0.061 ; 0.078        ; 0.184          ; 0.045 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|99                       ;
+; -0.061 ; 0.078        ; 0.184          ; 0.045 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; 74161:inst49|f74161:sub|87                       ;
+; -0.061 ; 0.078        ; 0.184          ; 0.045 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; 74161:inst49|f74161:sub|9                        ;
+; 0.119  ; 0.096        ; 0.000          ; 0.023 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|110|clk                               ;
+; 0.119  ; 0.096        ; 0.000          ; 0.023 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|87|clk                                ;
+; 0.119  ; 0.096        ; 0.000          ; 0.023 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|99|clk                                ;
+; 0.119  ; 0.096        ; 0.000          ; 0.023 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|9|clk                                 ;
+; 0.119  ; 0.096        ; 0.000          ; 0.023 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; inst49|sub|87|clk                                ;
+; 0.119  ; 0.096        ; 0.000          ; 0.023 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; inst49|sub|9|clk                                 ;
+; 0.123  ; 0.123        ; 0.000          ; 0.000 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~input|o                   ;
+; 0.123  ; 0.123        ; 0.000          ; 0.000 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~input|o               ;
+; 0.142  ; 0.138        ; 0.000          ; 0.004 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~inputclkctrl|inclk[0]     ;
+; 0.142  ; 0.138        ; 0.000          ; 0.004 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~inputclkctrl|outclk       ;
+; 0.142  ; 0.138        ; 0.000          ; 0.004 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~inputclkctrl|inclk[0] ;
+; 0.142  ; 0.138        ; 0.000          ; 0.004 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~inputclkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~input|i                   ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; Low Pulse Width  ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~input|i                   ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~input|i               ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; Low Pulse Width  ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~input|i               ;
+; 0.659  ; 0.830        ; 0.216          ; 0.045 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|110                      ;
+; 0.659  ; 0.830        ; 0.216          ; 0.045 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|87                       ;
+; 0.659  ; 0.830        ; 0.216          ; 0.045 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|9                        ;
+; 0.659  ; 0.830        ; 0.216          ; 0.045 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; 74161:inst30|f74161:sub|99                       ;
+; 0.659  ; 0.830        ; 0.216          ; 0.045 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; 74161:inst49|f74161:sub|87                       ;
+; 0.659  ; 0.830        ; 0.216          ; 0.045 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; 74161:inst49|f74161:sub|9                        ;
+; 0.858  ; 0.854        ; 0.000          ; 0.004 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~inputclkctrl|inclk[0]     ;
+; 0.858  ; 0.854        ; 0.000          ; 0.004 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~inputclkctrl|outclk       ;
+; 0.858  ; 0.854        ; 0.000          ; 0.004 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~inputclkctrl|inclk[0] ;
+; 0.858  ; 0.854        ; 0.000          ; 0.004 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~inputclkctrl|outclk   ;
+; 0.877  ; 0.877        ; 0.000          ; 0.000 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO~input|o                   ;
+; 0.877  ; 0.877        ; 0.000          ; 0.000 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal~input|o               ;
+; 0.881  ; 0.858        ; 0.000          ; 0.023 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|110|clk                               ;
+; 0.881  ; 0.858        ; 0.000          ; 0.023 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|87|clk                                ;
+; 0.881  ; 0.858        ; 0.000          ; 0.023 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|99|clk                                ;
+; 0.881  ; 0.858        ; 0.000          ; 0.023 ; High Pulse Width ; DIAN_ZHEN_ROW_SAO_MIAO     ; Rise       ; inst30|sub|9|clk                                 ;
+; 0.881  ; 0.858        ; 0.000          ; 0.023 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; inst49|sub|87|clk                                ;
+; 0.881  ; 0.858        ; 0.000          ; 0.023 ; High Pulse Width ; SHU_MA_GUAN_WEI_ZHI_Signal ; Rise       ; inst49|sub|9|clk                                 ;
++--------+--------------+----------------+-------+------------------+----------------------------+------------+--------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------+
+; Setup Times                                                                              ;
++-----------+------------------------+-------+-------+------------+------------------------+
+; Data Port ; Clock Port             ; Rise  ; Fall  ; Clock Edge ; Clock Reference        ;
++-----------+------------------------+-------+-------+------------+------------------------+
+; A0        ; DIAN_ZHEN_ROW_SAO_MIAO ; 2.481 ; 3.214 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A1        ; DIAN_ZHEN_ROW_SAO_MIAO ; 2.961 ; 3.576 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A2        ; DIAN_ZHEN_ROW_SAO_MIAO ; 3.028 ; 3.683 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A3        ; DIAN_ZHEN_ROW_SAO_MIAO ; 3.094 ; 3.764 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B0        ; DIAN_ZHEN_ROW_SAO_MIAO ; 2.164 ; 2.884 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B1        ; DIAN_ZHEN_ROW_SAO_MIAO ; 3.250 ; 3.797 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B2        ; DIAN_ZHEN_ROW_SAO_MIAO ; 3.340 ; 3.800 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B3        ; DIAN_ZHEN_ROW_SAO_MIAO ; 3.024 ; 3.572 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
++-----------+------------------------+-------+-------+------------+------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Hold Times                                                                                 ;
++-----------+------------------------+--------+--------+------------+------------------------+
+; Data Port ; Clock Port             ; Rise   ; Fall   ; Clock Edge ; Clock Reference        ;
++-----------+------------------------+--------+--------+------------+------------------------+
+; A0        ; DIAN_ZHEN_ROW_SAO_MIAO ; -1.924 ; -2.610 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A1        ; DIAN_ZHEN_ROW_SAO_MIAO ; -2.258 ; -2.710 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A2        ; DIAN_ZHEN_ROW_SAO_MIAO ; -2.331 ; -2.817 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A3        ; DIAN_ZHEN_ROW_SAO_MIAO ; -2.078 ; -2.826 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B0        ; DIAN_ZHEN_ROW_SAO_MIAO ; -1.618 ; -2.294 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B1        ; DIAN_ZHEN_ROW_SAO_MIAO ; -2.595 ; -3.036 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B2        ; DIAN_ZHEN_ROW_SAO_MIAO ; -2.579 ; -3.152 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B3        ; DIAN_ZHEN_ROW_SAO_MIAO ; -1.754 ; -2.447 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
++-----------+------------------------+--------+--------+------------+------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                            ;
++-----------+----------------------------+-------+-------+------------+----------------------------+
+; Data Port ; Clock Port                 ; Rise  ; Fall  ; Clock Edge ; Clock Reference            ;
++-----------+----------------------------+-------+-------+------------+----------------------------+
+; DZA       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 4.341 ; 4.578 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZB       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.914 ; 4.133 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZC       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.114 ; 3.208 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZD       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.200 ; 3.308 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O5        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.495 ; 3.564 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O6        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 4.456 ; 4.548 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O7        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.405 ; 3.404 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O8        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.912 ; 4.059 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O9        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.725 ; 3.859 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O10       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.526 ; 3.546 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; 138A      ; SHU_MA_GUAN_WEI_ZHI_Signal ; 3.255 ; 3.358 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; 138B      ; SHU_MA_GUAN_WEI_ZHI_Signal ; 3.585 ; 3.705 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DA    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 6.326 ; 6.207 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DB    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 6.032 ; 5.611 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DC    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 6.273 ; 6.152 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DD    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 5.593 ; 5.526 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DE    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 5.443 ; 5.119 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DF    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 5.075 ; 5.313 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DG    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 5.424 ; 5.377 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
++-----------+----------------------------+-------+-------+------------+----------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                                    ;
++-----------+----------------------------+-------+-------+------------+----------------------------+
+; Data Port ; Clock Port                 ; Rise  ; Fall  ; Clock Edge ; Clock Reference            ;
++-----------+----------------------------+-------+-------+------------+----------------------------+
+; DZA       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 4.227 ; 4.455 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZB       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.817 ; 4.028 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZC       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.049 ; 3.139 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZD       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.131 ; 3.235 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O5        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.208 ; 3.274 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O6        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 4.188 ; 4.333 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O7        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.095 ; 3.131 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O8        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.628 ; 3.740 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O9        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.447 ; 3.546 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O10       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.240 ; 3.291 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; 138A      ; SHU_MA_GUAN_WEI_ZHI_Signal ; 3.184 ; 3.283 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; 138B      ; SHU_MA_GUAN_WEI_ZHI_Signal ; 3.501 ; 3.616 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DA    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 5.170 ; 5.069 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DB    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 4.955 ; 4.723 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DC    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 5.216 ; 4.957 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DD    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 4.503 ; 4.434 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DE    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 4.432 ; 4.306 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DF    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 4.189 ; 4.258 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DG    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 4.280 ; 4.288 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
++-----------+----------------------------+-------+-------+------------+----------------------------+
+
+
++--------------------------------------------------------------+
+; Propagation Delay                                            ;
++------------+-------------+--------+--------+--------+--------+
+; Input Port ; Output Port ; RR     ; RF     ; FR     ; FF     ;
++------------+-------------+--------+--------+--------+--------+
+; A0         ; SEG_DA      ; 9.798  ; 9.682  ; 10.580 ; 10.464 ;
+; A0         ; SEG_DB      ; 9.504  ; 9.360  ; 10.286 ; 10.142 ;
+; A0         ; SEG_DC      ; 9.726  ; 9.603  ; 10.508 ; 10.385 ;
+; A0         ; SEG_DD      ; 9.079  ; 9.001  ; 9.861  ; 9.783  ;
+; A0         ; SEG_DE      ; 8.928  ; 8.737  ; 9.710  ; 9.519  ;
+; A0         ; SEG_DF      ; 8.818  ; 8.764  ; 9.600  ; 9.546  ;
+; A0         ; SEG_DG      ; 8.910  ; 8.828  ; 9.692  ; 9.610  ;
+; A1         ; SEG_DA      ; 10.879 ; 10.763 ; 11.350 ; 11.234 ;
+; A1         ; SEG_DB      ; 10.585 ; 10.441 ; 11.056 ; 10.912 ;
+; A1         ; SEG_DC      ; 10.807 ; 10.684 ; 11.278 ; 11.155 ;
+; A1         ; SEG_DD      ; 10.160 ; 10.082 ; 10.631 ; 10.553 ;
+; A1         ; SEG_DE      ; 10.009 ; 9.818  ; 10.480 ; 10.289 ;
+; A1         ; SEG_DF      ; 9.899  ; 9.845  ; 10.370 ; 10.316 ;
+; A1         ; SEG_DG      ; 9.991  ; 9.909  ; 10.462 ; 10.380 ;
+; A2         ; SEG_DA      ; 10.995 ; 10.879 ; 11.457 ; 11.341 ;
+; A2         ; SEG_DB      ; 10.701 ; 10.557 ; 11.163 ; 11.019 ;
+; A2         ; SEG_DC      ; 10.923 ; 10.800 ; 11.385 ; 11.262 ;
+; A2         ; SEG_DD      ; 10.276 ; 10.198 ; 10.738 ; 10.660 ;
+; A2         ; SEG_DE      ; 10.125 ; 9.934  ; 10.587 ; 10.396 ;
+; A2         ; SEG_DF      ; 10.015 ; 9.961  ; 10.477 ; 10.423 ;
+; A2         ; SEG_DG      ; 10.107 ; 10.025 ; 10.569 ; 10.487 ;
+; A3         ; SEG_DA      ; 10.975 ; 10.859 ; 11.538 ; 11.422 ;
+; A3         ; SEG_DB      ; 10.681 ; 10.537 ; 11.244 ; 11.100 ;
+; A3         ; SEG_DC      ; 10.903 ; 10.780 ; 11.466 ; 11.343 ;
+; A3         ; SEG_DD      ; 10.256 ; 10.178 ; 10.819 ; 10.741 ;
+; A3         ; SEG_DE      ; 10.105 ; 9.914  ; 10.668 ; 10.477 ;
+; A3         ; SEG_DF      ; 9.995  ; 9.941  ; 10.558 ; 10.504 ;
+; A3         ; SEG_DG      ; 10.087 ; 10.005 ; 10.650 ; 10.568 ;
+; B0         ; SEG_DA      ; 9.054  ; 8.938  ; 9.794  ; 9.678  ;
+; B0         ; SEG_DB      ; 8.760  ; 8.616  ; 9.500  ; 9.356  ;
+; B0         ; SEG_DC      ; 8.982  ; 8.859  ; 9.722  ; 9.599  ;
+; B0         ; SEG_DD      ; 8.335  ; 8.257  ; 9.075  ; 8.997  ;
+; B0         ; SEG_DE      ; 8.184  ; 7.993  ; 8.924  ; 8.733  ;
+; B0         ; SEG_DF      ; 8.074  ; 8.020  ; 8.814  ; 8.760  ;
+; B0         ; SEG_DG      ; 8.166  ; 8.084  ; 8.906  ; 8.824  ;
+; B1         ; SEG_DA      ; 9.459  ; 9.343  ; 10.009 ; 9.893  ;
+; B1         ; SEG_DB      ; 9.165  ; 9.021  ; 9.715  ; 9.571  ;
+; B1         ; SEG_DC      ; 9.387  ; 9.264  ; 9.937  ; 9.814  ;
+; B1         ; SEG_DD      ; 8.740  ; 8.662  ; 9.290  ; 9.212  ;
+; B1         ; SEG_DE      ; 8.589  ; 8.398  ; 9.139  ; 8.948  ;
+; B1         ; SEG_DF      ; 8.479  ; 8.425  ; 9.029  ; 8.975  ;
+; B1         ; SEG_DG      ; 8.571  ; 8.489  ; 9.121  ; 9.039  ;
+; B2         ; SEG_DA      ; 9.507  ; 9.391  ; 10.012 ; 9.896  ;
+; B2         ; SEG_DB      ; 9.213  ; 9.069  ; 9.718  ; 9.574  ;
+; B2         ; SEG_DC      ; 9.435  ; 9.312  ; 9.940  ; 9.817  ;
+; B2         ; SEG_DD      ; 8.788  ; 8.710  ; 9.293  ; 9.215  ;
+; B2         ; SEG_DE      ; 8.637  ; 8.446  ; 9.142  ; 8.951  ;
+; B2         ; SEG_DF      ; 8.527  ; 8.473  ; 9.032  ; 8.978  ;
+; B2         ; SEG_DG      ; 8.619  ; 8.537  ; 9.124  ; 9.042  ;
+; B3         ; SEG_DA      ; 9.260  ; 9.144  ; 9.784  ; 9.668  ;
+; B3         ; SEG_DB      ; 8.966  ; 8.822  ; 9.490  ; 9.346  ;
+; B3         ; SEG_DC      ; 9.188  ; 9.065  ; 9.712  ; 9.589  ;
+; B3         ; SEG_DD      ; 8.541  ; 8.463  ; 9.065  ; 8.987  ;
+; B3         ; SEG_DE      ; 8.390  ; 8.199  ; 8.914  ; 8.723  ;
+; B3         ; SEG_DF      ; 8.280  ; 8.226  ; 8.804  ; 8.750  ;
+; B3         ; SEG_DG      ; 8.372  ; 8.290  ; 8.896  ; 8.814  ;
++------------+-------------+--------+--------+--------+--------+
+
+
++----------------------------------------------------------+
+; Minimum Propagation Delay                                ;
++------------+-------------+-------+-------+-------+-------+
+; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
++------------+-------------+-------+-------+-------+-------+
+; A0         ; SEG_DA      ; 6.957 ; 6.861 ; 7.680 ; 7.584 ;
+; A0         ; SEG_DB      ; 6.635 ; 6.515 ; 7.358 ; 7.238 ;
+; A0         ; SEG_DC      ; 6.898 ; 6.808 ; 7.621 ; 7.605 ;
+; A0         ; SEG_DD      ; 6.226 ; 6.169 ; 6.949 ; 6.892 ;
+; A0         ; SEG_DE      ; 6.222 ; 6.035 ; 6.964 ; 6.758 ;
+; A0         ; SEG_DF      ; 6.040 ; 5.938 ; 6.860 ; 6.661 ;
+; A0         ; SEG_DG      ; 6.131 ; 6.023 ; 6.948 ; 6.746 ;
+; A1         ; SEG_DA      ; 6.525 ; 6.399 ; 7.211 ; 7.088 ;
+; A1         ; SEG_DB      ; 6.220 ; 6.052 ; 6.919 ; 6.743 ;
+; A1         ; SEG_DC      ; 6.641 ; 6.289 ; 7.173 ; 6.968 ;
+; A1         ; SEG_DD      ; 5.774 ; 5.707 ; 6.460 ; 6.391 ;
+; A1         ; SEG_DE      ; 5.642 ; 5.798 ; 6.341 ; 6.263 ;
+; A1         ; SEG_DF      ; 5.639 ; 5.476 ; 6.220 ; 6.175 ;
+; A1         ; SEG_DG      ; 5.634 ; 5.561 ; 6.320 ; 6.245 ;
+; A2         ; SEG_DA      ; 6.239 ; 6.116 ; 7.000 ; 6.926 ;
+; A2         ; SEG_DB      ; 6.220 ; 5.771 ; 6.676 ; 6.580 ;
+; A2         ; SEG_DC      ; 6.201 ; 5.996 ; 6.939 ; 6.814 ;
+; A2         ; SEG_DD      ; 5.488 ; 5.419 ; 6.268 ; 6.215 ;
+; A2         ; SEG_DE      ; 5.715 ; 5.291 ; 6.126 ; 6.215 ;
+; A2         ; SEG_DF      ; 5.248 ; 5.525 ; 6.046 ; 6.007 ;
+; A2         ; SEG_DG      ; 5.348 ; 5.273 ; 6.123 ; 6.091 ;
+; A3         ; SEG_DA      ; 6.834 ; 6.733 ; 7.391 ; 7.268 ;
+; A3         ; SEG_DB      ; 6.518 ; 6.387 ; 7.198 ; 6.923 ;
+; A3         ; SEG_DC      ; 6.781 ; 6.621 ; 7.353 ; 7.148 ;
+; A3         ; SEG_DD      ; 6.110 ; 6.057 ; 6.640 ; 6.571 ;
+; A3         ; SEG_DE      ; 5.968 ; 6.022 ; 6.620 ; 6.443 ;
+; A3         ; SEG_DF      ; 5.853 ; 5.849 ; 6.400 ; 6.454 ;
+; A3         ; SEG_DG      ; 5.944 ; 5.933 ; 6.500 ; 6.425 ;
+; B0         ; SEG_DA      ; 6.366 ; 6.270 ; 7.088 ; 6.992 ;
+; B0         ; SEG_DB      ; 6.044 ; 5.924 ; 6.766 ; 6.646 ;
+; B0         ; SEG_DC      ; 6.307 ; 6.289 ; 7.029 ; 6.986 ;
+; B0         ; SEG_DD      ; 5.635 ; 5.578 ; 6.357 ; 6.300 ;
+; B0         ; SEG_DE      ; 5.657 ; 5.444 ; 6.345 ; 6.166 ;
+; B0         ; SEG_DF      ; 5.521 ; 5.347 ; 6.241 ; 6.069 ;
+; B0         ; SEG_DG      ; 5.612 ; 5.432 ; 6.329 ; 6.154 ;
+; B1         ; SEG_DA      ; 6.582 ; 6.456 ; 7.170 ; 7.074 ;
+; B1         ; SEG_DB      ; 6.277 ; 6.109 ; 6.848 ; 6.728 ;
+; B1         ; SEG_DC      ; 6.652 ; 6.346 ; 7.111 ; 7.062 ;
+; B1         ; SEG_DD      ; 5.831 ; 5.764 ; 6.439 ; 6.382 ;
+; B1         ; SEG_DE      ; 5.699 ; 5.789 ; 6.415 ; 6.248 ;
+; B1         ; SEG_DF      ; 5.699 ; 5.533 ; 6.325 ; 6.151 ;
+; B1         ; SEG_DG      ; 5.691 ; 5.618 ; 6.407 ; 6.236 ;
+; B2         ; SEG_DA      ; 6.684 ; 6.583 ; 7.286 ; 7.190 ;
+; B2         ; SEG_DB      ; 6.406 ; 6.237 ; 6.964 ; 6.844 ;
+; B2         ; SEG_DC      ; 6.669 ; 6.471 ; 7.227 ; 7.115 ;
+; B2         ; SEG_DD      ; 5.995 ; 5.926 ; 6.555 ; 6.498 ;
+; B2         ; SEG_DE      ; 5.968 ; 5.798 ; 6.548 ; 6.364 ;
+; B2         ; SEG_DF      ; 5.703 ; 5.709 ; 6.347 ; 6.267 ;
+; B2         ; SEG_DG      ; 5.794 ; 5.780 ; 6.438 ; 6.352 ;
+; B3         ; SEG_DA      ; 6.347 ; 6.251 ; 7.027 ; 6.931 ;
+; B3         ; SEG_DB      ; 6.025 ; 5.905 ; 6.705 ; 6.585 ;
+; B3         ; SEG_DC      ; 6.288 ; 6.277 ; 6.968 ; 6.925 ;
+; B3         ; SEG_DD      ; 5.616 ; 5.559 ; 6.296 ; 6.239 ;
+; B3         ; SEG_DE      ; 5.638 ; 5.425 ; 6.284 ; 6.105 ;
+; B3         ; SEG_DF      ; 5.509 ; 5.328 ; 6.180 ; 6.008 ;
+; B3         ; SEG_DG      ; 5.600 ; 5.413 ; 6.268 ; 6.093 ;
++------------+-------------+-------+-------+-------+-------+
+
+
++-----------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                     ;
++-----------------------------+--------+-------+----------+---------+---------------------+
+; Clock                       ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++-----------------------------+--------+-------+----------+---------+---------------------+
+; Worst-case Slack            ; -1.065 ; 0.0   ; 0.0      ; 0.0     ; -3.000              ;
+;  DIAN_ZHEN_ROW_SAO_MIAO     ; -1.065 ; 0.186 ; N/A      ; N/A     ; N/A                 ;
+;  SHU_MA_GUAN_WEI_ZHI_Signal ; -0.079 ; 0.186 ; N/A      ; N/A     ; N/A                 ;
+; Design-wide TNS             ; -4.036 ; 0.0   ; 0.0      ; 0.0     ; N/A                 ;
+;  DIAN_ZHEN_ROW_SAO_MIAO     ; -3.957 ; 0.000 ; N/A      ; N/A     ; N/A                 ;
+;  SHU_MA_GUAN_WEI_ZHI_Signal ; -0.079 ; 0.000 ; N/A      ; N/A     ; N/A                 ;
++-----------------------------+--------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------------------------+
+; Setup Times                                                                              ;
++-----------+------------------------+-------+-------+------------+------------------------+
+; Data Port ; Clock Port             ; Rise  ; Fall  ; Clock Edge ; Clock Reference        ;
++-----------+------------------------+-------+-------+------------+------------------------+
+; A0        ; DIAN_ZHEN_ROW_SAO_MIAO ; 5.897 ; 5.922 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A1        ; DIAN_ZHEN_ROW_SAO_MIAO ; 6.719 ; 6.806 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A2        ; DIAN_ZHEN_ROW_SAO_MIAO ; 6.894 ; 7.002 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A3        ; DIAN_ZHEN_ROW_SAO_MIAO ; 7.018 ; 7.116 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B0        ; DIAN_ZHEN_ROW_SAO_MIAO ; 5.073 ; 5.233 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B1        ; DIAN_ZHEN_ROW_SAO_MIAO ; 7.342 ; 7.385 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B2        ; DIAN_ZHEN_ROW_SAO_MIAO ; 7.196 ; 7.611 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B3        ; DIAN_ZHEN_ROW_SAO_MIAO ; 6.883 ; 6.915 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
++-----------+------------------------+-------+-------+------------+------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Hold Times                                                                                 ;
++-----------+------------------------+--------+--------+------------+------------------------+
+; Data Port ; Clock Port             ; Rise   ; Fall   ; Clock Edge ; Clock Reference        ;
++-----------+------------------------+--------+--------+------------+------------------------+
+; A0        ; DIAN_ZHEN_ROW_SAO_MIAO ; -1.924 ; -2.610 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A1        ; DIAN_ZHEN_ROW_SAO_MIAO ; -2.258 ; -2.710 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A2        ; DIAN_ZHEN_ROW_SAO_MIAO ; -2.331 ; -2.817 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; A3        ; DIAN_ZHEN_ROW_SAO_MIAO ; -2.078 ; -2.826 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B0        ; DIAN_ZHEN_ROW_SAO_MIAO ; -1.618 ; -2.294 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B1        ; DIAN_ZHEN_ROW_SAO_MIAO ; -2.595 ; -3.036 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B2        ; DIAN_ZHEN_ROW_SAO_MIAO ; -2.579 ; -3.152 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
+; B3        ; DIAN_ZHEN_ROW_SAO_MIAO ; -1.754 ; -2.447 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO ;
++-----------+------------------------+--------+--------+------------+------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                              ;
++-----------+----------------------------+--------+--------+------------+----------------------------+
+; Data Port ; Clock Port                 ; Rise   ; Fall   ; Clock Edge ; Clock Reference            ;
++-----------+----------------------------+--------+--------+------------+----------------------------+
+; DZA       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 9.464  ; 9.079  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZB       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 8.431  ; 8.304  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZC       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 6.615  ; 6.501  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZD       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 6.723  ; 6.696  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O5        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 7.447  ; 7.297  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O6        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 9.017  ; 8.915  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O7        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 7.283  ; 7.052  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O8        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 8.428  ; 8.246  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O9        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 8.028  ; 7.888  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O10       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 7.576  ; 7.308  ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; 138A      ; SHU_MA_GUAN_WEI_ZHI_Signal ; 6.947  ; 6.800  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; 138B      ; SHU_MA_GUAN_WEI_ZHI_Signal ; 7.689  ; 7.507  ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DA    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 12.703 ; 12.731 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DB    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 12.470 ; 12.605 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DC    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 13.074 ; 13.201 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DD    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 11.707 ; 11.933 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DE    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 11.322 ; 11.574 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DF    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 11.195 ; 11.274 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DG    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 11.392 ; 11.504 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
++-----------+----------------------------+--------+--------+------------+----------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                                    ;
++-----------+----------------------------+-------+-------+------------+----------------------------+
+; Data Port ; Clock Port                 ; Rise  ; Fall  ; Clock Edge ; Clock Reference            ;
++-----------+----------------------------+-------+-------+------------+----------------------------+
+; DZA       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 4.227 ; 4.455 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZB       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.817 ; 4.028 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZC       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.049 ; 3.139 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; DZD       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.131 ; 3.235 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O5        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.208 ; 3.274 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O6        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 4.188 ; 4.333 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O7        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.095 ; 3.131 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O8        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.628 ; 3.740 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O9        ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.447 ; 3.546 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; O10       ; DIAN_ZHEN_ROW_SAO_MIAO     ; 3.240 ; 3.291 ; Rise       ; DIAN_ZHEN_ROW_SAO_MIAO     ;
+; 138A      ; SHU_MA_GUAN_WEI_ZHI_Signal ; 3.184 ; 3.283 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; 138B      ; SHU_MA_GUAN_WEI_ZHI_Signal ; 3.501 ; 3.616 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DA    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 5.170 ; 5.069 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DB    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 4.955 ; 4.723 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DC    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 5.216 ; 4.957 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DD    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 4.503 ; 4.434 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DE    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 4.432 ; 4.306 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DF    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 4.189 ; 4.258 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
+; SEG_DG    ; SHU_MA_GUAN_WEI_ZHI_Signal ; 4.280 ; 4.288 ; Rise       ; SHU_MA_GUAN_WEI_ZHI_Signal ;
++-----------+----------------------------+-------+-------+------------+----------------------------+
+
+
++--------------------------------------------------------------+
+; Progagation Delay                                            ;
++------------+-------------+--------+--------+--------+--------+
+; Input Port ; Output Port ; RR     ; RF     ; FR     ; FF     ;
++------------+-------------+--------+--------+--------+--------+
+; A0         ; SEG_DA      ; 21.021 ; 21.061 ; 20.887 ; 20.927 ;
+; A0         ; SEG_DB      ; 20.775 ; 20.952 ; 20.641 ; 20.818 ;
+; A0         ; SEG_DC      ; 21.362 ; 21.562 ; 21.228 ; 21.428 ;
+; A0         ; SEG_DD      ; 19.995 ; 20.221 ; 19.861 ; 20.087 ;
+; A0         ; SEG_DE      ; 19.466 ; 19.862 ; 19.332 ; 19.728 ;
+; A0         ; SEG_DF      ; 19.483 ; 19.587 ; 19.349 ; 19.453 ;
+; A0         ; SEG_DG      ; 19.684 ; 19.821 ; 19.550 ; 19.687 ;
+; A1         ; SEG_DA      ; 22.823 ; 22.863 ; 23.188 ; 23.228 ;
+; A1         ; SEG_DB      ; 22.577 ; 22.754 ; 22.942 ; 23.119 ;
+; A1         ; SEG_DC      ; 23.164 ; 23.364 ; 23.529 ; 23.729 ;
+; A1         ; SEG_DD      ; 21.797 ; 22.023 ; 22.162 ; 22.388 ;
+; A1         ; SEG_DE      ; 21.268 ; 21.664 ; 21.633 ; 22.029 ;
+; A1         ; SEG_DF      ; 21.285 ; 21.389 ; 21.650 ; 21.754 ;
+; A1         ; SEG_DG      ; 21.486 ; 21.623 ; 21.851 ; 21.988 ;
+; A2         ; SEG_DA      ; 22.998 ; 23.038 ; 23.504 ; 23.544 ;
+; A2         ; SEG_DB      ; 22.752 ; 22.929 ; 23.258 ; 23.435 ;
+; A2         ; SEG_DC      ; 23.339 ; 23.539 ; 23.845 ; 24.045 ;
+; A2         ; SEG_DD      ; 21.972 ; 22.198 ; 22.478 ; 22.704 ;
+; A2         ; SEG_DE      ; 21.443 ; 21.839 ; 21.949 ; 22.345 ;
+; A2         ; SEG_DF      ; 21.460 ; 21.564 ; 21.966 ; 22.070 ;
+; A2         ; SEG_DG      ; 21.661 ; 21.798 ; 22.167 ; 22.304 ;
+; A3         ; SEG_DA      ; 23.122 ; 23.162 ; 23.473 ; 23.513 ;
+; A3         ; SEG_DB      ; 22.876 ; 23.053 ; 23.227 ; 23.404 ;
+; A3         ; SEG_DC      ; 23.463 ; 23.663 ; 23.814 ; 24.014 ;
+; A3         ; SEG_DD      ; 22.096 ; 22.322 ; 22.447 ; 22.673 ;
+; A3         ; SEG_DE      ; 21.567 ; 21.963 ; 21.918 ; 22.314 ;
+; A3         ; SEG_DF      ; 21.584 ; 21.688 ; 21.935 ; 22.039 ;
+; A3         ; SEG_DG      ; 21.785 ; 21.922 ; 22.136 ; 22.273 ;
+; B0         ; SEG_DA      ; 19.041 ; 19.081 ; 19.374 ; 19.414 ;
+; B0         ; SEG_DB      ; 18.795 ; 18.972 ; 19.128 ; 19.305 ;
+; B0         ; SEG_DC      ; 19.382 ; 19.582 ; 19.715 ; 19.915 ;
+; B0         ; SEG_DD      ; 18.015 ; 18.241 ; 18.348 ; 18.574 ;
+; B0         ; SEG_DE      ; 17.486 ; 17.882 ; 17.819 ; 18.215 ;
+; B0         ; SEG_DF      ; 17.503 ; 17.607 ; 17.836 ; 17.940 ;
+; B0         ; SEG_DG      ; 17.704 ; 17.841 ; 18.037 ; 18.174 ;
+; B1         ; SEG_DA      ; 19.916 ; 19.956 ; 20.128 ; 20.168 ;
+; B1         ; SEG_DB      ; 19.670 ; 19.847 ; 19.882 ; 20.059 ;
+; B1         ; SEG_DC      ; 20.257 ; 20.457 ; 20.469 ; 20.669 ;
+; B1         ; SEG_DD      ; 18.890 ; 19.116 ; 19.102 ; 19.328 ;
+; B1         ; SEG_DE      ; 18.361 ; 18.757 ; 18.573 ; 18.969 ;
+; B1         ; SEG_DF      ; 18.378 ; 18.482 ; 18.590 ; 18.694 ;
+; B1         ; SEG_DG      ; 18.579 ; 18.716 ; 18.791 ; 18.928 ;
+; B2         ; SEG_DA      ; 19.847 ; 19.887 ; 20.088 ; 20.128 ;
+; B2         ; SEG_DB      ; 19.601 ; 19.778 ; 19.842 ; 20.019 ;
+; B2         ; SEG_DC      ; 20.188 ; 20.388 ; 20.429 ; 20.629 ;
+; B2         ; SEG_DD      ; 18.821 ; 19.047 ; 19.062 ; 19.288 ;
+; B2         ; SEG_DE      ; 18.292 ; 18.688 ; 18.533 ; 18.929 ;
+; B2         ; SEG_DF      ; 18.309 ; 18.413 ; 18.550 ; 18.654 ;
+; B2         ; SEG_DG      ; 18.510 ; 18.647 ; 18.751 ; 18.888 ;
+; B3         ; SEG_DA      ; 19.457 ; 19.497 ; 19.673 ; 19.713 ;
+; B3         ; SEG_DB      ; 19.211 ; 19.388 ; 19.427 ; 19.604 ;
+; B3         ; SEG_DC      ; 19.798 ; 19.998 ; 20.014 ; 20.214 ;
+; B3         ; SEG_DD      ; 18.431 ; 18.657 ; 18.647 ; 18.873 ;
+; B3         ; SEG_DE      ; 17.902 ; 18.298 ; 18.118 ; 18.514 ;
+; B3         ; SEG_DF      ; 17.919 ; 18.023 ; 18.135 ; 18.239 ;
+; B3         ; SEG_DG      ; 18.120 ; 18.257 ; 18.336 ; 18.473 ;
++------------+-------------+--------+--------+--------+--------+
+
+
++----------------------------------------------------------+
+; Minimum Progagation Delay                                ;
++------------+-------------+-------+-------+-------+-------+
+; Input Port ; Output Port ; RR    ; RF    ; FR    ; FF    ;
++------------+-------------+-------+-------+-------+-------+
+; A0         ; SEG_DA      ; 6.957 ; 6.861 ; 7.680 ; 7.584 ;
+; A0         ; SEG_DB      ; 6.635 ; 6.515 ; 7.358 ; 7.238 ;
+; A0         ; SEG_DC      ; 6.898 ; 6.808 ; 7.621 ; 7.605 ;
+; A0         ; SEG_DD      ; 6.226 ; 6.169 ; 6.949 ; 6.892 ;
+; A0         ; SEG_DE      ; 6.222 ; 6.035 ; 6.964 ; 6.758 ;
+; A0         ; SEG_DF      ; 6.040 ; 5.938 ; 6.860 ; 6.661 ;
+; A0         ; SEG_DG      ; 6.131 ; 6.023 ; 6.948 ; 6.746 ;
+; A1         ; SEG_DA      ; 6.525 ; 6.399 ; 7.211 ; 7.088 ;
+; A1         ; SEG_DB      ; 6.220 ; 6.052 ; 6.919 ; 6.743 ;
+; A1         ; SEG_DC      ; 6.641 ; 6.289 ; 7.173 ; 6.968 ;
+; A1         ; SEG_DD      ; 5.774 ; 5.707 ; 6.460 ; 6.391 ;
+; A1         ; SEG_DE      ; 5.642 ; 5.798 ; 6.341 ; 6.263 ;
+; A1         ; SEG_DF      ; 5.639 ; 5.476 ; 6.220 ; 6.175 ;
+; A1         ; SEG_DG      ; 5.634 ; 5.561 ; 6.320 ; 6.245 ;
+; A2         ; SEG_DA      ; 6.239 ; 6.116 ; 7.000 ; 6.926 ;
+; A2         ; SEG_DB      ; 6.220 ; 5.771 ; 6.676 ; 6.580 ;
+; A2         ; SEG_DC      ; 6.201 ; 5.996 ; 6.939 ; 6.814 ;
+; A2         ; SEG_DD      ; 5.488 ; 5.419 ; 6.268 ; 6.215 ;
+; A2         ; SEG_DE      ; 5.715 ; 5.291 ; 6.126 ; 6.215 ;
+; A2         ; SEG_DF      ; 5.248 ; 5.525 ; 6.046 ; 6.007 ;
+; A2         ; SEG_DG      ; 5.348 ; 5.273 ; 6.123 ; 6.091 ;
+; A3         ; SEG_DA      ; 6.834 ; 6.733 ; 7.391 ; 7.268 ;
+; A3         ; SEG_DB      ; 6.518 ; 6.387 ; 7.198 ; 6.923 ;
+; A3         ; SEG_DC      ; 6.781 ; 6.621 ; 7.353 ; 7.148 ;
+; A3         ; SEG_DD      ; 6.110 ; 6.057 ; 6.640 ; 6.571 ;
+; A3         ; SEG_DE      ; 5.968 ; 6.022 ; 6.620 ; 6.443 ;
+; A3         ; SEG_DF      ; 5.853 ; 5.849 ; 6.400 ; 6.454 ;
+; A3         ; SEG_DG      ; 5.944 ; 5.933 ; 6.500 ; 6.425 ;
+; B0         ; SEG_DA      ; 6.366 ; 6.270 ; 7.088 ; 6.992 ;
+; B0         ; SEG_DB      ; 6.044 ; 5.924 ; 6.766 ; 6.646 ;
+; B0         ; SEG_DC      ; 6.307 ; 6.289 ; 7.029 ; 6.986 ;
+; B0         ; SEG_DD      ; 5.635 ; 5.578 ; 6.357 ; 6.300 ;
+; B0         ; SEG_DE      ; 5.657 ; 5.444 ; 6.345 ; 6.166 ;
+; B0         ; SEG_DF      ; 5.521 ; 5.347 ; 6.241 ; 6.069 ;
+; B0         ; SEG_DG      ; 5.612 ; 5.432 ; 6.329 ; 6.154 ;
+; B1         ; SEG_DA      ; 6.582 ; 6.456 ; 7.170 ; 7.074 ;
+; B1         ; SEG_DB      ; 6.277 ; 6.109 ; 6.848 ; 6.728 ;
+; B1         ; SEG_DC      ; 6.652 ; 6.346 ; 7.111 ; 7.062 ;
+; B1         ; SEG_DD      ; 5.831 ; 5.764 ; 6.439 ; 6.382 ;
+; B1         ; SEG_DE      ; 5.699 ; 5.789 ; 6.415 ; 6.248 ;
+; B1         ; SEG_DF      ; 5.699 ; 5.533 ; 6.325 ; 6.151 ;
+; B1         ; SEG_DG      ; 5.691 ; 5.618 ; 6.407 ; 6.236 ;
+; B2         ; SEG_DA      ; 6.684 ; 6.583 ; 7.286 ; 7.190 ;
+; B2         ; SEG_DB      ; 6.406 ; 6.237 ; 6.964 ; 6.844 ;
+; B2         ; SEG_DC      ; 6.669 ; 6.471 ; 7.227 ; 7.115 ;
+; B2         ; SEG_DD      ; 5.995 ; 5.926 ; 6.555 ; 6.498 ;
+; B2         ; SEG_DE      ; 5.968 ; 5.798 ; 6.548 ; 6.364 ;
+; B2         ; SEG_DF      ; 5.703 ; 5.709 ; 6.347 ; 6.267 ;
+; B2         ; SEG_DG      ; 5.794 ; 5.780 ; 6.438 ; 6.352 ;
+; B3         ; SEG_DA      ; 6.347 ; 6.251 ; 7.027 ; 6.931 ;
+; B3         ; SEG_DB      ; 6.025 ; 5.905 ; 6.705 ; 6.585 ;
+; B3         ; SEG_DC      ; 6.288 ; 6.277 ; 6.968 ; 6.925 ;
+; B3         ; SEG_DD      ; 5.616 ; 5.559 ; 6.296 ; 6.239 ;
+; B3         ; SEG_DE      ; 5.638 ; 5.425 ; 6.284 ; 6.105 ;
+; B3         ; SEG_DF      ; 5.509 ; 5.328 ; 6.180 ; 6.008 ;
+; B3         ; SEG_DG      ; 5.600 ; 5.413 ; 6.268 ; 6.093 ;
++------------+-------------+-------+-------+-------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+
+; DZA           ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; DZB           ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; DZC           ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; DZD           ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; 138A          ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; 138B          ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; 138C          ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; SEG_DA        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; SEG_DB        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; SEG_DC        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; SEG_DD        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; SEG_DE        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; SEG_DF        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; SEG_DG        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; O5            ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; O6            ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; O7            ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; O8            ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; O9            ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; O10           ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+
+
+
++-------------------------------------------------------------------------------+
+; Input Transition Times                                                        ;
++----------------------------+--------------+-----------------+-----------------+
+; Pin                        ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++----------------------------+--------------+-----------------+-----------------+
+; B1                         ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; A1                         ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; A0                         ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; A2                         ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; A3                         ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; B0                         ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; B2                         ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; B3                         ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; DIAN_ZHEN_ROW_SAO_MIAO     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SHU_MA_GUAN_WEI_ZHI_Signal ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~        ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~             ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++----------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; DZA           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; DZB           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.35 V              ; -0.00716 V          ; 0.126 V                              ; 0.011 V                              ; 4.7e-010 s                  ; 4.63e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.35 V             ; -0.00716 V         ; 0.126 V                             ; 0.011 V                             ; 4.7e-010 s                 ; 4.63e-010 s                ; Yes                       ; Yes                       ;
+; DZC           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; DZD           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; 138A          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; 138B          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; 138C          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; SEG_DA        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.33 V              ; -0.00215 V          ; 0.091 V                              ; 0.057 V                              ; 3.77e-009 s                 ; 3.49e-009 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.33 V             ; -0.00215 V         ; 0.091 V                             ; 0.057 V                             ; 3.77e-009 s                ; 3.49e-009 s                ; Yes                       ; Yes                       ;
+; SEG_DB        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.35 V              ; -0.00716 V          ; 0.126 V                              ; 0.011 V                              ; 4.7e-010 s                  ; 4.63e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.35 V             ; -0.00716 V         ; 0.126 V                             ; 0.011 V                             ; 4.7e-010 s                 ; 4.63e-010 s                ; Yes                       ; Yes                       ;
+; SEG_DC        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; SEG_DD        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; SEG_DE        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; SEG_DF        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; SEG_DG        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; O5            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.84e-007 V                  ; 2.35 V              ; -0.0105 V           ; 0.143 V                              ; 0.041 V                              ; 4.81e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.84e-007 V                 ; 2.35 V             ; -0.0105 V          ; 0.143 V                             ; 0.041 V                             ; 4.81e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; O6            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.33 V              ; -0.00219 V          ; 0.108 V                              ; 0.043 V                              ; 3.76e-009 s                 ; 3.48e-009 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.33 V             ; -0.00219 V         ; 0.108 V                             ; 0.043 V                             ; 3.76e-009 s                ; 3.48e-009 s                ; Yes                       ; Yes                       ;
+; O7            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.35 V              ; -0.00716 V          ; 0.126 V                              ; 0.011 V                              ; 4.7e-010 s                  ; 4.63e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.35 V             ; -0.00716 V         ; 0.126 V                             ; 0.011 V                             ; 4.7e-010 s                 ; 4.63e-010 s                ; Yes                       ; Yes                       ;
+; O8            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.34 V              ; -0.00816 V          ; 0.139 V                              ; 0.044 V                              ; 6.89e-010 s                 ; 6.56e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.34 V             ; -0.00816 V         ; 0.139 V                             ; 0.044 V                             ; 6.89e-010 s                ; 6.56e-010 s                ; Yes                       ; Yes                       ;
+; O9            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.34 V              ; -0.00816 V          ; 0.139 V                              ; 0.044 V                              ; 6.89e-010 s                 ; 6.56e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.34 V             ; -0.00816 V         ; 0.139 V                             ; 0.044 V                             ; 6.89e-010 s                ; 6.56e-010 s                ; Yes                       ; Yes                       ;
+; O10           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.91e-007 V                  ; 2.35 V              ; -0.00716 V          ; 0.126 V                              ; 0.011 V                              ; 4.7e-010 s                  ; 4.63e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.91e-007 V                 ; 2.35 V             ; -0.00716 V         ; 0.126 V                             ; 0.011 V                             ; 4.7e-010 s                 ; 4.63e-010 s                ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.53e-007 V                  ; 2.35 V              ; -0.00333 V          ; 0.096 V                              ; 0.006 V                              ; 4.5e-010 s                  ; 3.85e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.53e-007 V                 ; 2.35 V             ; -0.00333 V         ; 0.096 V                             ; 0.006 V                             ; 4.5e-010 s                 ; 3.85e-010 s                ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.51e-007 V                  ; 2.34 V              ; -0.00733 V          ; 0.108 V                              ; 0.027 V                              ; 6.58e-010 s                 ; 8.21e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 2.51e-007 V                 ; 2.34 V             ; -0.00733 V         ; 0.108 V                             ; 0.027 V                             ; 6.58e-010 s                ; 8.21e-010 s                ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; DZA           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0357 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0357 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; DZB           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.7e-008 V                   ; 2.72 V              ; -0.0402 V           ; 0.163 V                              ; 0.091 V                              ; 2.71e-010 s                 ; 2.62e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 2.7e-008 V                  ; 2.72 V             ; -0.0402 V          ; 0.163 V                             ; 0.091 V                             ; 2.71e-010 s                ; 2.62e-010 s                ; Yes                       ; Yes                       ;
+; DZC           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0357 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0357 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; DZD           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0357 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0357 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; 138A          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0357 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0357 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; 138B          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0357 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0357 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; 138C          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0357 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0357 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; SEG_DA        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.64 V              ; -0.0115 V           ; 0.204 V                              ; 0.12 V                               ; 2.38e-009 s                 ; 2.23e-009 s                 ; No                         ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.64 V             ; -0.0115 V          ; 0.204 V                             ; 0.12 V                              ; 2.38e-009 s                ; 2.23e-009 s                ; No                        ; Yes                       ;
+; SEG_DB        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.7e-008 V                   ; 2.72 V              ; -0.0402 V           ; 0.163 V                              ; 0.091 V                              ; 2.71e-010 s                 ; 2.62e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 2.7e-008 V                  ; 2.72 V             ; -0.0402 V          ; 0.163 V                             ; 0.091 V                             ; 2.71e-010 s                ; 2.62e-010 s                ; Yes                       ; Yes                       ;
+; SEG_DC        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0357 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0357 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; SEG_DD        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0357 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0357 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; SEG_DE        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0357 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0357 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; SEG_DF        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0357 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0357 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; SEG_DG        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0357 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0357 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; O5            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.02e-008 V                  ; 2.71 V              ; -0.0357 V           ; 0.174 V                              ; 0.098 V                              ; 2.73e-010 s                 ; 2.69e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.02e-008 V                 ; 2.71 V             ; -0.0357 V          ; 0.174 V                             ; 0.098 V                             ; 2.73e-010 s                ; 2.69e-010 s                ; Yes                       ; Yes                       ;
+; O6            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.7e-008 V                   ; 2.64 V              ; -0.0117 V           ; 0.201 V                              ; 0.176 V                              ; 2.38e-009 s                 ; 2.22e-009 s                 ; No                         ; Yes                        ; 2.62 V                      ; 2.7e-008 V                  ; 2.64 V             ; -0.0117 V          ; 0.201 V                             ; 0.176 V                             ; 2.38e-009 s                ; 2.22e-009 s                ; No                        ; Yes                       ;
+; O7            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.7e-008 V                   ; 2.72 V              ; -0.0402 V           ; 0.163 V                              ; 0.091 V                              ; 2.71e-010 s                 ; 2.62e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 2.7e-008 V                  ; 2.72 V             ; -0.0402 V          ; 0.163 V                             ; 0.091 V                             ; 2.71e-010 s                ; 2.62e-010 s                ; Yes                       ; Yes                       ;
+; O8            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.7e-008 V                   ; 2.71 V              ; -0.0351 V           ; 0.147 V                              ; 0.066 V                              ; 4.51e-010 s                 ; 4.15e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 2.7e-008 V                  ; 2.71 V             ; -0.0351 V          ; 0.147 V                             ; 0.066 V                             ; 4.51e-010 s                ; 4.15e-010 s                ; No                        ; Yes                       ;
+; O9            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.7e-008 V                   ; 2.71 V              ; -0.0351 V           ; 0.147 V                              ; 0.066 V                              ; 4.51e-010 s                 ; 4.15e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 2.7e-008 V                  ; 2.71 V             ; -0.0351 V          ; 0.147 V                             ; 0.066 V                             ; 4.51e-010 s                ; 4.15e-010 s                ; No                        ; Yes                       ;
+; O10           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.7e-008 V                   ; 2.72 V              ; -0.0402 V           ; 0.163 V                              ; 0.091 V                              ; 2.71e-010 s                 ; 2.62e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 2.7e-008 V                  ; 2.72 V             ; -0.0402 V          ; 0.163 V                             ; 0.091 V                             ; 2.71e-010 s                ; 2.62e-010 s                ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.2e-008 V                   ; 2.74 V              ; -0.061 V            ; 0.159 V                              ; 0.078 V                              ; 2.7e-010 s                  ; 2.2e-010 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.2e-008 V                  ; 2.74 V             ; -0.061 V           ; 0.159 V                             ; 0.078 V                             ; 2.7e-010 s                 ; 2.2e-010 s                 ; No                        ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.52e-008 V                  ; 2.7 V               ; -0.0119 V           ; 0.274 V                              ; 0.034 V                              ; 3.18e-010 s                 ; 4.97e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 3.52e-008 V                 ; 2.7 V              ; -0.0119 V          ; 0.274 V                             ; 0.034 V                             ; 3.18e-010 s                ; 4.97e-010 s                ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                     ;
++----------------------------+----------------------------+----------+----------+----------+----------+
+; From Clock                 ; To Clock                   ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++----------------------------+----------------------------+----------+----------+----------+----------+
+; DIAN_ZHEN_ROW_SAO_MIAO     ; DIAN_ZHEN_ROW_SAO_MIAO     ; 26       ; 0        ; 0        ; 0        ;
+; SHU_MA_GUAN_WEI_ZHI_Signal ; SHU_MA_GUAN_WEI_ZHI_Signal ; 3        ; 0        ; 0        ; 0        ;
++----------------------------+----------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                      ;
++----------------------------+----------------------------+----------+----------+----------+----------+
+; From Clock                 ; To Clock                   ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++----------------------------+----------------------------+----------+----------+----------+----------+
+; DIAN_ZHEN_ROW_SAO_MIAO     ; DIAN_ZHEN_ROW_SAO_MIAO     ; 26       ; 0        ; 0        ; 0        ;
+; SHU_MA_GUAN_WEI_ZHI_Signal ; SHU_MA_GUAN_WEI_ZHI_Signal ; 3        ; 0        ; 0        ; 0        ;
++----------------------------+----------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design.
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design.
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 8     ; 8    ;
+; Unconstrained Input Port Paths  ; 88    ; 88   ;
+; Unconstrained Output Ports      ; 19    ; 19   ;
+; Unconstrained Output Port Paths ; 100   ; 100  ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II TimeQuest Timing Analyzer
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Processing started: Thu Dec 29 17:53:29 2016
+Info: Command: quartus_sta EDA -c EDA
+Info: qsta_default_script.tcl version: #3
+Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info: Core supply voltage is 1.2V
+Info: Low junction temperature is 0 degrees C
+Info: High junction temperature is 85 degrees C
+Critical Warning: Synopsys Design Constraints File file not found: 'EDA.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info: No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info: Deriving Clocks
+    Info: create_clock -period 1.000 -name DIAN_ZHEN_ROW_SAO_MIAO DIAN_ZHEN_ROW_SAO_MIAO
+    Info: create_clock -period 1.000 -name SHU_MA_GUAN_WEI_ZHI_Signal SHU_MA_GUAN_WEI_ZHI_Signal
+Critical Warning: The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning: From DIAN_ZHEN_ROW_SAO_MIAO (Rise) to DIAN_ZHEN_ROW_SAO_MIAO (Rise) (setup and hold)
+    Critical Warning: From SHU_MA_GUAN_WEI_ZHI_Signal (Rise) to SHU_MA_GUAN_WEI_ZHI_Signal (Rise) (setup and hold)
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -1.065
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -1.065        -3.957 DIAN_ZHEN_ROW_SAO_MIAO 
+    Info:    -0.079        -0.079 SHU_MA_GUAN_WEI_ZHI_Signal 
+Info: Worst-case hold slack is 0.453
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     0.453         0.000 DIAN_ZHEN_ROW_SAO_MIAO 
+    Info:     0.453         0.000 SHU_MA_GUAN_WEI_ZHI_Signal 
+Info: No recovery paths to report
+Info: No removal paths to report
+Critical Warning: Found minimum pulse width or period violations. See Report Minimum Pulse Width for details.
+Info: The Metastability Analysis global option is set to OFF.
+Info: No synchronizer chains to report.
+Info: Analyzing Slow 1200mV 0C Model
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Critical Warning: The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning: From DIAN_ZHEN_ROW_SAO_MIAO (Rise) to DIAN_ZHEN_ROW_SAO_MIAO (Rise) (setup and hold)
+    Critical Warning: From SHU_MA_GUAN_WEI_ZHI_Signal (Rise) to SHU_MA_GUAN_WEI_ZHI_Signal (Rise) (setup and hold)
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -0.855
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -0.855        -3.153 DIAN_ZHEN_ROW_SAO_MIAO 
+    Info:     0.033         0.000 SHU_MA_GUAN_WEI_ZHI_Signal 
+Info: Worst-case hold slack is 0.402
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     0.402         0.000 DIAN_ZHEN_ROW_SAO_MIAO 
+    Info:     0.402         0.000 SHU_MA_GUAN_WEI_ZHI_Signal 
+Info: No recovery paths to report
+Info: No removal paths to report
+Critical Warning: Found minimum pulse width or period violations. See Report Minimum Pulse Width for details.
+Info: The Metastability Analysis global option is set to OFF.
+Info: No synchronizer chains to report.
+Info: Analyzing Fast 1200mV 0C Model
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Critical Warning: The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning: From DIAN_ZHEN_ROW_SAO_MIAO (Rise) to DIAN_ZHEN_ROW_SAO_MIAO (Rise) (setup and hold)
+    Critical Warning: From SHU_MA_GUAN_WEI_ZHI_Signal (Rise) to SHU_MA_GUAN_WEI_ZHI_Signal (Rise) (setup and hold)
+Info: Worst-case setup slack is 0.109
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     0.109         0.000 DIAN_ZHEN_ROW_SAO_MIAO 
+    Info:     0.539         0.000 SHU_MA_GUAN_WEI_ZHI_Signal 
+Info: Worst-case hold slack is 0.186
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     0.186         0.000 DIAN_ZHEN_ROW_SAO_MIAO 
+    Info:     0.186         0.000 SHU_MA_GUAN_WEI_ZHI_Signal 
+Info: No recovery paths to report
+Info: No removal paths to report
+Critical Warning: Timing requirements not met
+Critical Warning: Found minimum pulse width or period violations. See Report Minimum Pulse Width for details.
+Info: The Metastability Analysis global option is set to OFF.
+Info: No synchronizer chains to report.
+Info: Design is not fully constrained for setup requirements
+Info: Design is not fully constrained for hold requirements
+Info: Quartus II TimeQuest Timing Analyzer was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 232 megabytes
+    Info: Processing ended: Thu Dec 29 17:53:33 2016
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:05
+
+

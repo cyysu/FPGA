@@ -1,0 +1,16 @@
+Fitter Status : Successful - Thu Dec 29 17:53:20 2016
+Quartus II Version : 9.0 Build 132 02/25/2009 SJ Full Version
+Revision Name : EDA
+Top-level Entity Name : EDA
+Family : Cyclone III
+Device : EP3C10E144C8
+Timing Models : Final
+Total logic elements : 55 / 10,320 ( < 1 % )
+    Total combinational functions : 55 / 10,320 ( < 1 % )
+    Dedicated logic registers : 6 / 10,320 ( < 1 % )
+Total registers : 6
+Total pins : 30 / 95 ( 32 % )
+Total virtual pins : 0
+Total memory bits : 0 / 423,936 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 46 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )
